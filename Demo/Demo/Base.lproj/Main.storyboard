@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfp-sz-S2A">
+                                <rect key="frame" x="325" y="90" width="205" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="网络加载图片">
+                                    <color key="titleColor" red="0.066666666669999999" green="0.69019607839999997" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xJD-Fe-dQA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PdL-iM-T18">
+                                <rect key="frame" x="70" y="90" width="205" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Cjp-M0-mJ2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="本地加图片">
+                                    <color key="titleColor" red="0.066666666669999999" green="0.69019607839999997" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cL4-gx-9qk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PdL-iM-T18" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="D0O-O9-WtX"/>
+                            <constraint firstItem="nfp-sz-S2A" firstAttribute="top" secondItem="PdL-iM-T18" secondAttribute="top" id="TIk-Nr-Ux2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nfp-sz-S2A" secondAttribute="trailing" constant="50" id="VJo-t3-JNH"/>
+                            <constraint firstItem="nfp-sz-S2A" firstAttribute="height" secondItem="PdL-iM-T18" secondAttribute="height" id="YsL-UG-5hU"/>
+                            <constraint firstItem="PdL-iM-T18" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="dxr-IJ-5OT"/>
+                            <constraint firstItem="nfp-sz-S2A" firstAttribute="width" secondItem="PdL-iM-T18" secondAttribute="width" id="eeM-Az-388"/>
+                            <constraint firstItem="nfp-sz-S2A" firstAttribute="leading" secondItem="PdL-iM-T18" secondAttribute="trailing" constant="50" id="v0P-Lh-yLJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="290"/>
+        </scene>
+    </scenes>
+</document>
