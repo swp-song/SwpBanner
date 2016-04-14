@@ -23,7 +23,7 @@ SwpBanner 封装 简单 图片轮播器, 可加载本地图片，和远程图片
 手动导入：
 
 SwpBanner 文件夹 导入 项目 中, 依赖 SDWebImage 
-#import "SwpNetworking.h"
+#import "SwpBanner.h"
 
 CocoaPods 导入:
 
