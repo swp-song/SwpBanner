@@ -10,7 +10,7 @@
 #import "SwpBannerCell.h"
 
 /*! ---------------------- Tool       ---------------------- !*/
-#import "UIImageView+WebCache.h"       // Sd Web Image
+#import <SDWebImage/UIImageView+WebCache.h>       // Sd Web Image
 /*! ---------------------- Tool       ---------------------- !*/
 
 @interface SwpBannerCell ()
