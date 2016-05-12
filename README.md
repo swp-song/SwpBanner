@@ -4,7 +4,7 @@
 ##### SwpBanner 封装 简单 图片轮播器 
 
 ---
-#####效果：
+##### 效果：
 ![(图片轮播效果)](https://raw.githubusercontent.com/swp-song/SwpBanner/master/Screenshot/SwpBanner.gif)
 ---
 
@@ -18,7 +18,7 @@ SwpBanner 封装 简单 图片轮播器, 可加载本地图片，和远程图片
 
 ---
 
-#####导入：
+##### 导入：
 ```ruby
 手动导入：
 
@@ -38,7 +38,7 @@ pod 'SwpBanner'
 ```
 ---
 
-#####使用：
+##### 使用：
 
 
 ___数据源方法___ ___必须实现___
@@ -102,7 +102,7 @@ ___Blcok 回调___
 - (void)swpBannerDidSelectCell:(SwpBannerDidSelectCellBlock)swpBannerDidSelectCell;
 ```
 ---
-#####备注:
+##### 备注:
 ```
 交流 群号 : 85400118
 ```
