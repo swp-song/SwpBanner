@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name                  = "SwpBanner"
-  s.version               = "1.2.0"
+  s.version               = "1.2.1"
   s.ios.deployment_target = '7.0'
   s.summary               = " 封装图片轮播控件 "
   s.homepage              = "https://github.com/swp-song/SwpBanner"
