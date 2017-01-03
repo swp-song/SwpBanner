@@ -5,7 +5,6 @@
 //  Created by swp_song on 15/8/10.
 //  Copyright (c) 2015年 swp_song. All rights reserved.
 //
-//  @author             --->    swp_song
 
 #import <UIKit/UIKit.h>
 
@@ -16,12 +15,12 @@
 /*! 是否 加载 远程 url !*/
 @property (nonatomic, assign, getter=isLoadNetworkImage) BOOL loadNetworkImage;
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  setImageName:   ( Override setImageName )
+ *  @ brief  setImageName:   ( Override setImageName )
  *
- *  @param  imageName
+ *  @ param  imageName
  */
 - (void)setImageName:(NSString *)imageName;
 

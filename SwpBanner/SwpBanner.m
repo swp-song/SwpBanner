@@ -5,9 +5,6 @@
 //  Created by swp_song on 15/8/10.
 //  Copyright (c) 2015年 swp_song. All rights reserved.
 //
-//  @author             --->    swp_song    ( 图片轮播库 )
-//  @warning            --->    !!! < swpBannerView 内部实现使用的是 collectionView > !!!
-//                      --->    !!! < 如需要自定义 cell 需要 注册 cell 方法已经提供 > !!!
 
 #import "SwpBanner.h"
 
@@ -32,8 +29,8 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 #pragma mark - Data Propertys
 /*! ---------------------- Data Property  ---------------------- !*/
 /*! 记录 UICollectionView 的 section  */
-@property (nonatomic, assign) NSInteger         section;
-@property (nonatomic, copy, setter = swpBannerDidSelectCell:) SwpBannerDidSelectCellBlock    swpBannerDidSelectCell;
+@property (nonatomic, assign) NSInteger section;
+@property (nonatomic, copy, setter = swpBannerDidSelectCell:) SwpBannerDidSelectCellBlock swpBannerDidSelectCell;
 /*! ---------------------- Data Property  ---------------------- !*/
 
 @end
@@ -41,12 +38,12 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 
 @implementation SwpBanner
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  init    ( Override init )
+ *  @ brief  init    ( Override init )
  *
- *  @return SwpBanner
+ *  @ return SwpBanner
  */
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -59,10 +56,10 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
     return self;
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  layoutSubviews (Override layoutSubviews)
+ *  @ brief  layoutSubviews (Override layoutSubviews)
  */
 - (void)layoutSubviews {
     
@@ -74,10 +71,10 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 
 
 #pragma mark - Setting Init Data Method
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  initData ( 设置初始化数据 )
+ *  @ brief  initData ( 设置初始化数据 )
  */
 - (void) settingInitData {
     
@@ -95,11 +92,10 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 
 
 #pragma mark - Setting UI Methods
-
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  addUI ( 添加 UI 控件 )
+ *  @ brief  addUI ( 添加 UI 控件 )
  */
 - (void)addUI {
     [self addSubview:self.swpBannerView];
@@ -109,105 +105,105 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 
 #pragma mark - Setting SwpBanner Propertys Methods
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  setSwpBannerTime:   ( 设置 swpBannerTime 定时时间 )
+ *  @ brief  setSwpBannerTime:   ( 设置 swpBannerTime 定时时间 )
  *
- *  @param  swpBannerTime       ( default 0.5s )
+ *  @ param  swpBannerTime       ( default 0.5s )
  */
 - (void)setSwpBannerTime:(CGFloat)swpBannerTime {
     _swpBannerTime = swpBannerTime;
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  setSwpBannerCustomCell:     ( 设置 swpBanner 是否自定义cell )
+ *  @ brief  setSwpBannerCustomCell:     ( 设置 swpBanner 是否自定义cell )
  *
- *  @param  swpBannerCustomCell         ( default NO < YES使用自动cell , NO 使用默认cell > )
+ *  @ param  swpBannerCustomCell         ( default NO < YES使用自动cell , NO 使用默认cell > )
  */
 - (void)setSwpBannerCustomCell:(BOOL)swpBannerCustomCell {
     _swpBannerCustomCell = swpBannerCustomCell;
 }
 
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  setSwpBannerLoadNetworkImage:       ( 设置 swpBanner 是否加载远程url )
+ *  @ brief  setSwpBannerLoadNetworkImage:       ( 设置 swpBanner 是否加载远程url )
  *
- *  @param  swpBannerLoadNetworkImage           ( default NO < YES 加载远程 url, NO 加载本地图片 >)
+ *  @ param  swpBannerLoadNetworkImage           ( default NO < YES 加载远程 url, NO 加载本地图片 >)
  */
 - (void)setSwpBannerLoadNetworkImage:(BOOL)swpBannerLoadNetworkImage {
     _swpBannerLoadNetworkImage = swpBannerLoadNetworkImage;
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  setSwpBannerBounces:    ( 设置 swpBanner  弹簧效果 )
+ *  @ brief  setSwpBannerBounces:    ( 设置 swpBanner  弹簧效果 )
  *
- *  @param  swpBannerBounces        ( default YES < YES 开启, NO 关闭 > )
+ *  @ param  swpBannerBounces        ( default YES < YES 开启, NO 关闭 > )
  */
 - (void)setSwpBannerBounces:(BOOL)swpBannerBounces {
     _swpBannerBounces          = swpBannerBounces;
     self.swpBannerView.bounces = _swpBannerBounces;
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  setSwpBannerPageControlHidden:      (设置 swpBanner 中 PagesColor 是否隐藏 )
+ *  @ brief  setSwpBannerPageControlHidden:      (设置 swpBanner 中 PagesColor 是否隐藏 )
  *
- *  @param  swpBannerPageControlHidden          ( default NO <YES 隐藏, NO 显示> )
+ *  @ param  swpBannerPageControlHidden          ( default NO <YES 隐藏, NO 显示> )
  */
 - (void)setSwpBannerPageControlHidden:(BOOL)swpBannerPageControlHidden {
     _swpBannerPageControlHidden          = swpBannerPageControlHidden;
     self.swpBannerPageControlView.hidden =  _swpBannerPageControlHidden;
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief setSwpNumberOfPagesColor:    (设置 swpBanner 中 PagesColor 总页数的颜色 )
+ *  @ brief setSwpNumberOfPagesColor:    (设置 swpBanner 中 PagesColor 总页数的颜色 )
  *
- *  @param swpNumberOfPagesColor
+ *  @ param swpNumberOfPagesColor
  */
 - (void)setSwpNumberOfPagesColor:(UIColor *)swpNumberOfPagesColor {
     _swpNumberOfPagesColor = swpNumberOfPagesColor;
     self.swpBannerPageControlView.pageIndicatorTintColor = _swpNumberOfPagesColor;
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief setSwpCurrentPageColor:      (设置 swpBanner 中 PagesColor 当前页数的颜色)
+ *  @ brief setSwpCurrentPageColor:      (设置 swpBanner 中 PagesColor 当前页数的颜色)
  *
- *  @param swpCurrentPageColor
+ *  @ param swpCurrentPageColor
  */
 - (void)setSwpCurrentPageColor:(UIColor *)swpCurrentPageColor {
     _swpCurrentPageColor = swpCurrentPageColor;
     self.swpBannerPageControlView.currentPageIndicatorTintColor = _swpCurrentPageColor;
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  swpBannerRegisterClass:forCellWithReuseIdentifier: ( swpBanner 注册一个cell )
+ *  @ brief  swpBannerRegisterClass:forCellWithReuseIdentifier: ( swpBanner 注册一个cell )
  *
- *  @param  cellClass
+ *  @ param  cellClass
  *
- *  @param  identifier
+ *  @ param  identifier
  */
 - (void)swpBannerRegisterClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier {
     [self.swpBannerView registerClass:cellClass forCellWithReuseIdentifier:identifier];
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  swpBannerReloadData ( swpBanner 数据刷新 )
+ *  @ brief  swpBannerReloadData ( swpBanner 数据刷新 )
  */
 - (void)swpBannerReloadData {
     
@@ -218,26 +214,26 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
     [self settingScrollAndPageControl];
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  swpBannerDidSelectCell: ( 点击每个 cell 回调 )
+ *  @ brief  swpBannerDidSelectCell: ( 点击每个 cell 回调 )
  *
- *  @param  swpBannerDidSelectCell
+ *  @ param  swpBannerDidSelectCell
  */
 - (void)swpBannerDidSelectCell:(SwpBannerDidSelectCellBlock)swpBannerDidSelectCell {
     _swpBannerDidSelectCell = swpBannerDidSelectCell;
 }
 
 #pragma mark - UICollectionView DataSource & SwpBannerView DataSource - Methods
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  collectionView DataSource ( collectionView 数据源方法 设置 collectionView 分组个数 )
+ *  @ brief  collectionView DataSource ( collectionView 数据源方法 设置 collectionView 分组个数 )
  *
- *  @param  collectionView
+ *  @ param  collectionView
  *
- *  @return NSInteger
+ *  @ return NSInteger
  */
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
@@ -248,16 +244,16 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
     }
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  collectionView DataSource ( collectionView 数据源方法 设置 collectionView 分组中 cell显示的个数 )
+ *  @ brief  collectionView DataSource ( collectionView 数据源方法 设置 collectionView 分组中 cell显示的个数 )
  *
- *  @param  collectionView
+ *  @ param  collectionView
  *
- *  @param  section
+ *  @ param  section
  *
- *  @return NSInteger
+ *  @ return NSInteger
  */
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     self.section = section;
@@ -265,16 +261,16 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 }
 
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  collectionView DataSource ( collectionView 数据源方法 设置 collectionView 分组中cell显示的数据 | 样式 )
+ *  @ brief  collectionView DataSource ( collectionView 数据源方法 设置 collectionView 分组中cell显示的数据 | 样式 )
  *
- *  @param  collectionView
+ *  @ param  collectionView
  *
- *  @param  indexPath
+ *  @ param  indexPath
  *
- *  @return UICollectionViewCell
+ *  @ return UICollectionViewCell
  */
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -291,18 +287,18 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 }
 
 #pragma mark - UICollectionView Delegate && SwpBannerView Delegate - Methods
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  collectionView Delegate ( collectionView 代理方法 设置 collectionView  每个cell的宽高 )
+ *  @ brief  collectionView Delegate ( collectionView 代理方法 设置 collectionView  每个cell的宽高 )
  *
- *  @param  collectionView
+ *  @ param  collectionView
  *
- *  @param  collectionViewLayout
+ *  @ param  collectionViewLayout
  *
- *  @param  indexPath
+ *  @ param  indexPath
  *
- *  @return CGSize
+ *  @ return CGSize
  */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.delegate respondsToSelector:@selector(swpBanner:collectionView:layout:sizeForItemAtIndexPath:)]) {
@@ -311,15 +307,14 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
     return CGSizeMake(self.frame.size.width, self.frame.size.height);
 }
 
-
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  collectionView Delegate ( collectionView 代理方法 点击每个cell调用 )
+ *  @ brief  collectionView Delegate ( collectionView 代理方法 点击每个cell调用 )
  *
- *  @param  collectionView
+ *  @ param  collectionView
  *
- *  @param  indexPath
+ *  @ param  indexPath
  */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -331,26 +326,26 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 
 
 #pragma mark - UIScrollView Delegate Methods
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  scrollView Delegate ( scrollView 代理方法 开始拖拽的时候调用 )
+ *  @ brief  scrollView Delegate ( scrollView 代理方法 开始拖拽的时候调用 )
  *
- *  @param  scrollView
+ *  @ param  scrollView
  */
 - (void) scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     // 开始滚动
     [self beginScroll];
 }
 
-/*!
- *  @author swp_song, 2015-12-09 11:38:25
+/**!
+ *  @ author swp_song, 2015-12-09 11:38:25
  *
- *  @brief  scrollView Delegate ( scrollView 代理方法 完全停止拖拽的时候调用 )
+ *  @ brief  scrollView Delegate ( scrollView 代理方法 完全停止拖拽的时候调用 )
  *
- *  @param  scrollView
+ *  @ param  scrollView
  *
- *  @param  decelerate
+ *  @ param  decelerate
  */
 - (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
@@ -358,12 +353,12 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
     [self stopScroll];
 }
 
-/*!
- *  @author swp_song, 2015-12-09 11:39:45
+/**!
+ *  @ author swp_song, 2015-12-09 11:39:45
  *
- *  @brief  scrollView Delegate ( scrollView 代理方法 正在滚动时调用 <计算分页> )
+ *  @ brief  scrollView Delegate ( scrollView 代理方法 正在滚动时调用 <计算分页> )
  *
- *  @param  scrollView
+ *  @ param  scrollView
  */
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     // 精确分页
@@ -374,10 +369,10 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 
 
 #pragma mark - Tools Methods
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  settingScrollAndPageControl (设置 图片 滚动属性 和 分页 属性)
+ *  @ brief  settingScrollAndPageControl (设置 图片 滚动属性 和 分页 属性)
  */
 - (void)settingScrollAndPageControl {
     
@@ -397,10 +392,10 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
     [self beginScroll];
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  beginScroll     (开始滚动)
+ *  @ brief  beginScroll     (开始滚动)
  */
 - (void)beginScroll {
     
@@ -409,20 +404,19 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
     
 }
 
-
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  stopScroll  ( 停止滚动 )
+ *  @ brief  stopScroll  ( 停止滚动 )
  */
 - (void) stopScroll {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(nextImage) object:nil];
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  nextImage   ( 自动滚动 )
+ *  @ brief  nextImage   ( 自动滚动 )
  */
 - (void) nextImage {
     
@@ -434,12 +428,12 @@ static NSString *const swpBannerCellID = @"swpBannerCellID";
 }
 
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  settingImageCollectionViewScrollScrollLocation  ( 设置 图片的 cell 的滚动 位置 )
+ *  @ brief  settingImageCollectionViewScrollScrollLocation:    ( 设置 图片的 cell 的滚动 位置 )
  *
- *  @param  initLocation                                    ( 需要图片初始化 到第一张图片 YES 是初始化到第一张图片 NO 是不需要 )
+ *  @ param  initLocation                                       ( 需要图片初始化 到第一张图片 YES 是初始化到第一张图片 NO 是不需要 )
  */
 - (void)settingImageCollectionViewScrollScrollLocation:(BOOL)initLocation  {
     

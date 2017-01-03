@@ -5,12 +5,11 @@
 //  Created by swp_song on 15/8/10.
 //  Copyright (c) 2015年 swp_song. All rights reserved.
 //
-//  @author             --->    swp_song
 
 #import "SwpBannerCell.h"
 
 /*! ---------------------- Tool       ---------------------- !*/
-#import "UIImageView+WebCache.h"       // Sd Web Image
+#import <SDWebImage/UIImageView+WebCache.h>       // Sd Web Image
 /*! ---------------------- Tool       ---------------------- !*/
 
 @interface SwpBannerCell ()
@@ -25,14 +24,14 @@
 
 @implementation SwpBannerCell
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  initWithFrame:  (Override initWithFrame)
+ *  @ brief  initWithFrame:  (Override initWithFrame)
  *
- *  @param  frame
+ *  @ param  frame
  *
- *  @return SwpBannerCell
+ *  @ return SwpBannerCell
  */
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -43,45 +42,41 @@
 }
 
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  layoutSubviews (Override layoutSubviews)
+ *  @ brief  layoutSubviews (Override layoutSubviews)
  */
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.imageView.frame = self.bounds;
 }
 
-/*!
- *  添加控件
- */
-
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  addUI ( 添加控件 )
+ *  @ brief  addUI ( 添加控件 )
  */
 - (void)addUI {
     [self.contentView addSubview:self.imageView];
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  setImageName:   ( Override setImageName )
+ *  @ brief  setImageName:   ( Override setImageName )
  *
- *  @param  imageName
+ *  @ param  imageName
  */
 - (void)setImageName:(NSString *)imageName {
     _imageName = [imageName copy];
     [self settingData];
 }
 
-/*!
- *  @author swp_song
+/**!
+ *  @ author swp_song
  *
- *  @brief  settingData ( 设置数据 )
+ *  @ brief  settingData ( 设置数据 )
  */
 - (void) settingData {
     
