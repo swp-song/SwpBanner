@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol SwpBannerDelegate <NSObject>
 
-/*! swpBannerView 代理协议 */
+/*! SwpBannerView 代理协议 !*/
 @optional
 
 /**!
@@ -41,6 +41,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  @ return CGSize
  */
 - (CGSize)swpBanner:(SwpBanner *)swpBanner collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  swpBanner:setNetworkLoadPlaceholderImageCellIndexPath: ( 设置 网络加载图片 PlaceholderImage )
+ *
+ *  @ param  swpBanner
+ *
+ *  @ param  indexPath
+ *
+ *  @ return UIImage
+ */
+- (UIImage *)swpBanner:(SwpBanner *)swpBanner setNetworkLoadPlaceholderImageCellIndexPath:(NSIndexPath *)indexPath;
 
 @end
 NS_ASSUME_NONNULL_END

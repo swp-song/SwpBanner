@@ -61,6 +61,10 @@
                             <constraint firstItem="VqW-8q-dJP" firstAttribute="top" secondItem="hOa-9H-sDc" secondAttribute="bottom" constant="32" id="tdA-QO-fJt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="localImageButton" destination="hOa-9H-sDc" id="Tf1-rL-1uy"/>
+                        <outlet property="networkImageButton" destination="VqW-8q-dJP" id="P8W-55-ysI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

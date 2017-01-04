@@ -36,7 +36,6 @@ typedef void(^SwpBannerDidSelectCellBlock)(SwpBanner *SwpBanner, NSIndexPath *in
 /*! 设置 swpBanner 中 PagesColor 当前页数的颜色             !*/
 @property (nonatomic, strong) UIColor *swpCurrentPageColor;
 
-
 #pragma mark - Setting SwpBannerView Propertys Methods
 /**!
  *  @ author swp_song
@@ -128,6 +127,15 @@ typedef void(^SwpBannerDidSelectCellBlock)(SwpBanner *SwpBanner, NSIndexPath *in
  *  @ param  swpBannerDidSelectCell
  */
 - (void)swpBannerDidSelectCell:(SwpBannerDidSelectCellBlock)swpBannerDidSelectCell;
+
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  swpBannerGetDefaultNetworkLoadPlaceholderImage: ( 获取默认 Placeholder Image )
+ *
+ *  @ return UIImage
+ */
+- (UIImage *)swpBannerGetDefaultNetworkLoadPlaceholderImage;
 
 @end
 

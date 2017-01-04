@@ -17,8 +17,10 @@
 		2D2B55681E1BA0CD00D0871B /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D2B555F1E1BA0CD00D0871B /* image2.png */; };
 		2D2B55691E1BA0CD00D0871B /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D2B55601E1BA0CD00D0871B /* image3.png */; };
 		2D2B556A1E1BA0CD00D0871B /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D2B55611E1BA0CD00D0871B /* image4.png */; };
-		2D2B55751E1BA12900D0871B /* SwpBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B556F1E1BA12900D0871B /* SwpBanner.m */; };
-		2D2B55761E1BA12900D0871B /* SwpBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B55711E1BA12900D0871B /* SwpBannerCell.m */; };
+		2D8AEB901E1CB79B00B6FB51 /* SwpBanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AEB8A1E1CB79B00B6FB51 /* SwpBanner.bundle */; };
+		2D8AEB911E1CB79B00B6FB51 /* SwpBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AEB8D1E1CB79B00B6FB51 /* SwpBanner.m */; };
+		2D8AEB921E1CB79B00B6FB51 /* SwpBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AEB8F1E1CB79B00B6FB51 /* SwpBannerCell.m */; };
+		2D8AEB951E1CB7AB00B6FB51 /* SwpBannerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AEB941E1CB7AB00B6FB51 /* SwpBannerTools.m */; };
 		C2EC7474468E78D9D188E727 /* libPods-SwpBannerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 668CC16C260D52B3E8FADD55 /* libPods-SwpBannerDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -37,13 +39,16 @@
 		2D2B555F1E1BA0CD00D0871B /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		2D2B55601E1BA0CD00D0871B /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
 		2D2B55611E1BA0CD00D0871B /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
-		2D2B556E1E1BA12900D0871B /* SwpBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBanner.h; sourceTree = "<group>"; };
-		2D2B556F1E1BA12900D0871B /* SwpBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwpBanner.m; sourceTree = "<group>"; };
-		2D2B55701E1BA12900D0871B /* SwpBannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerCell.h; sourceTree = "<group>"; };
-		2D2B55711E1BA12900D0871B /* SwpBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwpBannerCell.m; sourceTree = "<group>"; };
-		2D2B55721E1BA12900D0871B /* SwpBannerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerDataSource.h; sourceTree = "<group>"; };
-		2D2B55731E1BA12900D0871B /* SwpBannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerDelegate.h; sourceTree = "<group>"; };
-		2D2B55741E1BA12900D0871B /* SwpBannerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerHeader.h; sourceTree = "<group>"; };
+		2D8AEB831E1CB79B00B6FB51 /* SwpBannerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerDataSource.h; sourceTree = "<group>"; };
+		2D8AEB851E1CB79B00B6FB51 /* SwpBannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerDelegate.h; sourceTree = "<group>"; };
+		2D8AEB871E1CB79B00B6FB51 /* SwpBannerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerHeader.h; sourceTree = "<group>"; };
+		2D8AEB8A1E1CB79B00B6FB51 /* SwpBanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SwpBanner.bundle; sourceTree = "<group>"; };
+		2D8AEB8C1E1CB79B00B6FB51 /* SwpBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBanner.h; sourceTree = "<group>"; };
+		2D8AEB8D1E1CB79B00B6FB51 /* SwpBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwpBanner.m; sourceTree = "<group>"; };
+		2D8AEB8E1E1CB79B00B6FB51 /* SwpBannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerCell.h; sourceTree = "<group>"; };
+		2D8AEB8F1E1CB79B00B6FB51 /* SwpBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwpBannerCell.m; sourceTree = "<group>"; };
+		2D8AEB931E1CB7AB00B6FB51 /* SwpBannerTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwpBannerTools.h; sourceTree = "<group>"; };
+		2D8AEB941E1CB7AB00B6FB51 /* SwpBannerTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwpBannerTools.m; sourceTree = "<group>"; };
 		668CC16C260D52B3E8FADD55 /* libPods-SwpBannerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwpBannerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5F75FA9CF0E87D4A73A731 /* Pods-SwpBannerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpBannerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F436C0D3F223E82F28928FF2 /* Pods-SwpBannerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpBannerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,7 +87,7 @@
 		2D2B55451E1B9E8500D0871B /* SwpBannerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2D2B556D1E1BA12900D0871B /* SwpBanner */,
+				2D8AEB801E1CB79B00B6FB51 /* SwpBanner */,
 				2D2B555D1E1BA0CD00D0871B /* Resources */,
 				2D2B55491E1B9E8500D0871B /* AppDelegate.h */,
 				2D2B554A1E1B9E8500D0871B /* AppDelegate.m */,
@@ -117,19 +122,78 @@
 			path = ../../Resources;
 			sourceTree = "<group>";
 		};
-		2D2B556D1E1BA12900D0871B /* SwpBanner */ = {
+		2D8AEB801E1CB79B00B6FB51 /* SwpBanner */ = {
 			isa = PBXGroup;
 			children = (
-				2D2B556E1E1BA12900D0871B /* SwpBanner.h */,
-				2D2B556F1E1BA12900D0871B /* SwpBanner.m */,
-				2D2B55701E1BA12900D0871B /* SwpBannerCell.h */,
-				2D2B55711E1BA12900D0871B /* SwpBannerCell.m */,
-				2D2B55721E1BA12900D0871B /* SwpBannerDataSource.h */,
-				2D2B55731E1BA12900D0871B /* SwpBannerDelegate.h */,
-				2D2B55741E1BA12900D0871B /* SwpBannerHeader.h */,
+				2D8AEB811E1CB79B00B6FB51 /* SwpBannerOrder */,
+				2D8AEB891E1CB79B00B6FB51 /* SwpBannerResources */,
+				2D8AEB8B1E1CB79B00B6FB51 /* SwpBannerView */,
 			);
 			name = SwpBanner;
 			path = ../../SwpBanner;
+			sourceTree = "<group>";
+		};
+		2D8AEB811E1CB79B00B6FB51 /* SwpBannerOrder */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AEB821E1CB79B00B6FB51 /* SwpBannerDataSource */,
+				2D8AEB841E1CB79B00B6FB51 /* SwpBannerDelegate */,
+				2D8AEB861E1CB79B00B6FB51 /* SwpBannerHeader */,
+				2D8AEB881E1CB79B00B6FB51 /* SwpBannerTools */,
+			);
+			path = SwpBannerOrder;
+			sourceTree = "<group>";
+		};
+		2D8AEB821E1CB79B00B6FB51 /* SwpBannerDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AEB831E1CB79B00B6FB51 /* SwpBannerDataSource.h */,
+			);
+			path = SwpBannerDataSource;
+			sourceTree = "<group>";
+		};
+		2D8AEB841E1CB79B00B6FB51 /* SwpBannerDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AEB851E1CB79B00B6FB51 /* SwpBannerDelegate.h */,
+			);
+			path = SwpBannerDelegate;
+			sourceTree = "<group>";
+		};
+		2D8AEB861E1CB79B00B6FB51 /* SwpBannerHeader */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AEB871E1CB79B00B6FB51 /* SwpBannerHeader.h */,
+			);
+			path = SwpBannerHeader;
+			sourceTree = "<group>";
+		};
+		2D8AEB881E1CB79B00B6FB51 /* SwpBannerTools */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AEB931E1CB7AB00B6FB51 /* SwpBannerTools.h */,
+				2D8AEB941E1CB7AB00B6FB51 /* SwpBannerTools.m */,
+			);
+			path = SwpBannerTools;
+			sourceTree = "<group>";
+		};
+		2D8AEB891E1CB79B00B6FB51 /* SwpBannerResources */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AEB8A1E1CB79B00B6FB51 /* SwpBanner.bundle */,
+			);
+			path = SwpBannerResources;
+			sourceTree = "<group>";
+		};
+		2D8AEB8B1E1CB79B00B6FB51 /* SwpBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AEB8C1E1CB79B00B6FB51 /* SwpBanner.h */,
+				2D8AEB8D1E1CB79B00B6FB51 /* SwpBanner.m */,
+				2D8AEB8E1E1CB79B00B6FB51 /* SwpBannerCell.h */,
+				2D8AEB8F1E1CB79B00B6FB51 /* SwpBannerCell.m */,
+			);
+			path = SwpBannerView;
 			sourceTree = "<group>";
 		};
 		5CFB980A66AF97AFB696A4BD /* Pods */ = {
@@ -210,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8AEB901E1CB79B00B6FB51 /* SwpBanner.bundle in Resources */,
 				2D2B55561E1B9E8500D0871B /* LaunchScreen.storyboard in Resources */,
 				2D2B55691E1BA0CD00D0871B /* image3.png in Resources */,
 				2D2B55681E1BA0CD00D0871B /* image2.png in Resources */,
@@ -277,9 +342,10 @@
 			files = (
 				2D2B554E1E1B9E8500D0871B /* ViewController.m in Sources */,
 				2D2B554B1E1B9E8500D0871B /* AppDelegate.m in Sources */,
-				2D2B55751E1BA12900D0871B /* SwpBanner.m in Sources */,
+				2D8AEB911E1CB79B00B6FB51 /* SwpBanner.m in Sources */,
 				2D2B55481E1B9E8500D0871B /* main.m in Sources */,
-				2D2B55761E1BA12900D0871B /* SwpBannerCell.m in Sources */,
+				2D8AEB951E1CB7AB00B6FB51 /* SwpBannerTools.m in Sources */,
+				2D8AEB921E1CB79B00B6FB51 /* SwpBannerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwpBannerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swp-song.SwpBannerDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwpBannerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swp-song.SwpBannerDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

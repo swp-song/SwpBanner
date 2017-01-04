@@ -9,8 +9,15 @@
 #import "SwpBannerCell.h"
 
 /*! ---------------------- Tool       ---------------------- !*/
-#import <SDWebImage/UIImageView+WebCache.h>       // Sd Web Image
+#import "UIImageView+WebCache.h"        //  Sd Web Image
 /*! ---------------------- Tool       ---------------------- !*/
+
+/*! ---------------------- Model      ---------------------- !*/
+/*! ---------------------- Model      ---------------------- !*/
+
+/*! ---------------------- View       ---------------------- !*/
+/*! ---------------------- View       ---------------------- !*/
+
 
 @interface SwpBannerCell ()
 
@@ -70,18 +77,18 @@
  */
 - (void)setImageName:(NSString *)imageName {
     _imageName = [imageName copy];
-    [self settingData];
+    [self setData];
 }
 
 /**!
  *  @ author swp_song
  *
- *  @ brief  settingData ( 设置数据 )
+ *  @ brief  setData ( 设置数据 )
  */
-- (void) settingData {
+- (void)setData {
     
     if (self.isLoadNetworkImage) {
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageName] placeholderImage:nil];
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageName] placeholderImage:self.placeholderImage];
     } else {
         self.imageView.image = [UIImage imageNamed:self.imageName];
     }

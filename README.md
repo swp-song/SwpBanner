@@ -38,6 +38,22 @@ pod 'SwpBanner'
 ```
 ---
 
+##### 1.3.0 更新:
+
+```Objective-C
+
+  1. 2017-01-04 13:39:35
+
+  2. 新增 网络 加载图片 Placeholder Image 代理方法
+
+  3. 新增 获取 框架内 默认 Placeholder Image 图片 方法
+
+  4. Demo 重写
+
+```
+
+---
+
 ##### 1.2.1 更新:
 ```Objective-C
 

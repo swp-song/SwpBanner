@@ -8,53 +8,167 @@
 
 #import "ViewController.h"
 
+
+/*! ---------------------- Tool       ---------------------- !*/
+#import <Masonry/Masonry.h>
 #import "SwpBannerHeader.h"
+/*! ---------------------- Tool       ---------------------- !*/
+
+/*! ---------------------- Model      ---------------------- !*/
+/*! ---------------------- Model      ---------------------- !*/
+
+/*! ---------------------- View       ---------------------- !*/
+/*! ---------------------- View       ---------------------- !*/
+
+/*! ---------------------- Controller ---------------------- !*/
+/*! ---------------------- Controller ---------------------- !*/
 
 
 @interface ViewController () <SwpBannerDataSource, SwpBannerDelegate>
 
-@property (nonatomic, strong)   SwpBanner *swpBannerView;
-@property (nonatomic, copy)     NSArray   *swpBannerDataSource;
+
+#pragma mark - UI   Propertys
+/*! ---------------------- UI   Property  ---------------------- !*/
+@property (nonatomic, weak  ) IBOutlet UIButton *localImageButton;
+@property (nonatomic, weak  ) IBOutlet UIButton *networkImageButton;
+@property (nonatomic, strong) SwpBanner         *swpBannerView;
+/*! ---------------------- UI   Property  ---------------------- !*/
+
+#pragma mark - Data Propertys
+/*! ---------------------- Data Property  ---------------------- !*/
+@property (nonatomic, copy  ) NSArray   *swpBannerDataSource;
+/*! ---------------------- Data Property  ---------------------- !*/
+
 @end
 
 @implementation ViewController
 
+#pragma mark - Lifecycle Methods
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  viewDidLoad ( 视图载入完成 调用 )
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
+    [self setUI];
     
-    [self.view addSubview:self.swpBannerView];
+    [self setData];
     
-    // 如果 分页 不显示 需要 调用  swpBannerReloadData 方法
-    [self.swpBannerView swpBannerReloadData];
 }
 
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  viewWillAppear: ( 将要加载出视图 调用)
+ *
+ *  @ param  animated
+ */
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
 
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  viewDidAppear: ( 视图 显示 窗口时 调用 )
+ *
+ *  @ param  animated
+ */
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief viewWillDisappear: ( 视图  即将消失、被覆盖或是隐藏时调用 )
+ *
+ *  @ param animated
+ */
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // Do any additional setup after loading the view.
+}
+
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  viewDidDisappear: ( 视图已经消失、被覆盖或是隐藏时调用 )
+ *
+ *  @ param  animated
+ */
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
+/**!
+ *  @author swp_song
+ *
+ *  @brief  didReceiveMemoryWarning ( 内存不足时 调用 )
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 
-
-#pragma mark - SwpBanner DataSource Methods
-- (NSInteger)swpBanner:(SwpBanner *)swpBanner numberOfItemsInSection:(NSInteger)section {
-    return self.swpBannerDataSource.count;
+/**!
+ *  @author swp_song
+ *
+ *  @brief  dealloc ( 当前 控制器 被销毁时 调用 )
+ */
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
 }
 
-- (NSString *)swpBanner:(SwpBanner *)swpBanner cellImageForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return self.swpBannerDataSource[indexPath.item];
+
+#pragma mark - Set Data Method
+/**!
+ *  @author swp_song
+ *
+ *  @brief  setData ( 设置 初始化 数据 )
+ */
+- (void)setData {
+    
+    [self.swpBannerView swpBannerReloadData];
 }
 
-#pragma mark - SwpBanner Delegate Method
-- (void)swpBanner:(SwpBanner *)swpBanner didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@" Delegate %ld", indexPath.item);
+#pragma mark - Set UI Methods
+/**!
+ *  @author swp_song
+ *
+ *  @brief  setUI ( 设置 UI 控件 )
+ */
+- (void)setUI {
+    
+    [self setUpUI];
+    [self setUIAutoLayout];
 }
 
-#pragma mark - SwpBanner Block Method
-- (void)swpBannerDidSelectCell:(SwpBanner *)swpBanner {
-    [self.swpBannerView swpBannerDidSelectCell:^(SwpBanner * _Nonnull SwpBanner, NSIndexPath * _Nonnull indexPath) {
-        NSLog(@" Block  %ld", indexPath.item);
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  setUpUI ( 添加控件 )
+ */
+- (void)setUpUI {
+
+    [self.view addSubview:self.swpBannerView];
+}
+
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  setUIAutoLayout ( 设置控件的自动布局 )
+ */
+- (void)setUIAutoLayout {
+    
+    [self.swpBannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.networkImageButton.mas_bottom).offset(100);
+        make.width.equalTo(self.swpBannerView.mas_height).multipliedBy(3.0 / 1.0);
     }];
 }
 
@@ -69,6 +183,90 @@
     if (button.tag == 0) [self localLoadPicture];
     if (button.tag == 1) [self networkLoadingPicture];
 }
+
+
+
+#pragma mark - SwpBanner DataSource Methods
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  swpBanner:numberOfItemsInSection:   (  SwpBanner 数据源方法 设置 轮播显示数量 )
+ *
+ *  @ param  swpBanner
+ *
+ *  @ param  section
+ *
+ *  @ return NSInteger
+ */
+- (NSInteger)swpBanner:(SwpBanner *)swpBanner numberOfItemsInSection:(NSInteger)section {
+    return self.swpBannerDataSource.count;
+}
+
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  swpBanner:cellImageForItemAtIndexPath: ( 设置 SwpBanner 显示默认的cell 显示图片的名称 | 远程 URL )
+ *
+ *  @ param  swpBanner
+ *
+ *  @ param  indexPath
+ *
+ *  @ return NSString
+ */
+- (NSString *)swpBanner:(SwpBanner *)swpBanner cellImageForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return self.swpBannerDataSource[indexPath.item];
+}
+
+#pragma mark - SwpBanner Delegate Method
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  swpBanner:didSelectItemAtIndexPath: ( SwpBanner 代理方法 点击 每张轮播 图片 调用 )
+ *
+ *  @ param  swpBanner
+ *
+ *  @ param  indexPath
+ */
+- (void)swpBanner:(SwpBanner *)swpBanner didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@" Delegate %ld", indexPath.item);
+}
+
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  swpBanner:setNetworkLoadPlaceholderImageCellIndexPath: ( SwpBanner 代理方法 设置 网络加载图片 PlaceholderImage )
+ *
+ *  @ param  swpBanner
+ *
+ *  @ param  indexPath
+ *
+ *  @ return UIImage
+ */
+- (UIImage *)swpBanner:(SwpBanner *)swpBanner setNetworkLoadPlaceholderImageCellIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row % 2 == 0) {
+        return [swpBanner swpBannerGetDefaultNetworkLoadPlaceholderImage];
+    }
+    return [UIImage imageNamed:@"default_image"];
+}
+
+#pragma mark - SwpBanner Block Method
+/**!
+ *  @ author swp_song
+ *
+ *  @ brief  swpBannerDidSelectCell: ( SwpBanner Block 回调 )
+ *
+ *  @ param  swpBanner
+ */
+- (void)swpBannerDidSelectCell:(SwpBanner *)swpBanner {
+    
+    // swpBannerView 回调
+    [self.swpBannerView swpBannerDidSelectCell:^(SwpBanner * _Nonnull SwpBanner, NSIndexPath * _Nonnull indexPath) {
+        // 注意 Block 循环 引用
+        NSLog(@" Block  %ld", indexPath.item);
+    }];
+}
+
+
 
 
 #pragma mark - Tool Methods
@@ -103,15 +301,10 @@
     [self.swpBannerView swpBannerReloadData];
 }
 
-- (CGFloat)swpScreenScale:(CGFloat)screenWidth scaleWidth:(CGFloat)scaleWidth scaleHeight:(CGFloat)scaleHeight {
-    return screenWidth / scaleWidth * scaleHeight;
-}
-
 #pragma mark - Init UI Methods
-
 - (SwpBanner *)swpBannerView {
     return !_swpBannerView ? _swpBannerView = ({
-        SwpBanner *swpBanner = [[SwpBanner alloc ] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width, [self swpScreenScale:self.view.frame.size.width scaleWidth:2.0 scaleHeight:1.0])];
+        SwpBanner *swpBanner                = [SwpBanner new];
         swpBanner.dataSource                = self;
         swpBanner.delegate                  = self;
         swpBanner.swpBannerLoadNetworkImage = NO;
