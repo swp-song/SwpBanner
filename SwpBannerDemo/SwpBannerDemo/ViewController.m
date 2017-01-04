@@ -168,7 +168,7 @@
     [self.swpBannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.networkImageButton.mas_bottom).offset(100);
-        make.width.equalTo(self.swpBannerView.mas_height).multipliedBy(3.0 / 1.0);
+        make.width.equalTo(self.swpBannerView.mas_height).multipliedBy(2.0 / 1.0);
     }];
 }
 
