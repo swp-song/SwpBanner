@@ -45,13 +45,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @author swp_song
  *
- *  @brief  swpBanner:setNetworkLoadPlaceholderImageCellIndexPath: ( SwpBanner 代理方法，设置网络加载图片 PlaceholderImage )
+ *  @brief  swpBanner:loadNetworkPlaceholderImageAtIndexPath:   ( SwpBanner 代理方法，设置网络加载图片 PlaceholderImage )
  *
  *  @param  swpBanner   swpBanner
  *
  *  @param  indexPath   indexPath
  */
-- (id)swpBanner:(SwpBanner *)swpBanner setNetworkLoadPlaceholderImageCellIndexPath:(NSIndexPath *)indexPath;
+- (id)swpBanner:(SwpBanner *)swpBanner loadNetworkPlaceholderImageAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 NS_ASSUME_NONNULL_END

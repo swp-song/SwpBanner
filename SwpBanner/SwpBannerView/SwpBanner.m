@@ -210,7 +210,17 @@
  *  @return id
  */
 - (id)swpBannerView:(SwpBannerView *)swpBannerView loadPlaceholderImageForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.delegate_ swpBanner:self setNetworkLoadPlaceholderImageCellIndexPath:indexPath];
+    
+    if ([self.delegate_ respondsToSelector:@selector(swpBanner:loadNetworkPlaceholderImageAtIndexPath:)]) {
+        
+        id image = [self.delegate_ swpBanner:self loadNetworkPlaceholderImageAtIndexPath:indexPath];
+        
+        if (!image) return [SwpBannerTools swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
+        
+        return image;
+    }
+    
+    return [SwpBannerTools swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
 }
 
 /**
@@ -232,7 +242,6 @@
     if ([self.delegate_ respondsToSelector:@selector(swpBanner:didSelectItemAtIndexPath:)]) {
         [self.delegate_ swpBanner:self didSelectItemAtIndexPath:indexPath];
     }
-    
 }
 
 #pragma mark - UIScrollView Methods

@@ -8,7 +8,10 @@
 
 #import "SwpBannerView.h"
 
+/* ---------------------- View       ---------------------- */
 #import "SwpBannerCell.h"
+/* ---------------------- View       ---------------------- */
+
 
 static CGFloat   const  kItemLineSpacing      = 0;      //  cell Item 上下的间距
 static CGFloat   const  kItemInteritemSpacing = 0;      //  cell Item 左右的间距
