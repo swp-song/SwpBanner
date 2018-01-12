@@ -56,6 +56,7 @@
     
     
     self.swpBanner.delegate(self).dataSource(self);
+    
     [self setUI];
     
     [self setData];
