@@ -1,7 +1,9 @@
-#SwpBanner
+# SwpBanner
 
 
 ### SwpBanner 
+
+[![Version](https://img.shields.io/cocoapods/v/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner) [![License](https://img.shields.io/cocoapods/l/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner) [![Platform](https://img.shields.io/cocoapods/p/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner)
 
 -------
 
@@ -22,7 +24,9 @@
 >> * **SwpBanner** 文件夹导入项目中。
 >> * **`#import "SwpBannerHeader.h"`**
 >> * 依赖库 **SDWebImage** , 需要手动导入。
->> **[SDWebImage](https://github.com/rs/SDWebImage)**
+>> 
+>> * **[SDWebImage](https://github.com/rs/SDWebImage)**
+
 
 > -------
 
@@ -38,19 +42,23 @@
 ### 版本记录
 
 -------
-> * 版本版本：2.0.0
-> * 更新时间：2018-01-12 15:02:30
+
+> * 版本版本：2.0.1
+> * 更新时间：2018-01-12 15:45:59
 > * 更新内容：
-    *  方法更替，版本大更新
+> 
+>>    * 更新 Demo，Gif 图片
     
 -------
 
-> * 版本版本：1.3.3
-> * 更新时间：2017-09-25 15:51:59
+> * 版本版本：2.0.0
+> * 更新时间：2018-01-12 15:02:30
 > * 更新内容：
-    * 解决 Xcode 9 编译的一些警告问题
+> 
+>> *  方法更替，版本大更新
     
 -------
+
 
 ### 备注
 

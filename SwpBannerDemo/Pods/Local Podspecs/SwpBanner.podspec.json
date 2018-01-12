@@ -1,7 +1,7 @@
 {
   "name": "SwpBanner",
-  "version": "1.3.3",
-  "summary": "封装图片轮播控件",
+  "version": "2.0.1",
+  "summary": "SwpBanner, 封装图片轮播控件",
   "description": "TODO: 封装图片轮播控件",
   "homepage": "https://github.com/swp-song/SwpBanner",
   "license": {
@@ -9,21 +9,17 @@
     "file": "LICENSE"
   },
   "authors": {
-    " swp_song": "396587868@qq.com"
+    "swp-song": "396587868@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/swp-song/SwpBanner.git",
+    "tag": "2.0.1"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source": {
-    "git": "https://github.com/swp-song/SwpBanner.git",
-    "tag": "1.3.3"
-  },
-  "source_files": [
-    "SwpBanner",
-    "SwpBanner/**/*.{h,m}"
-  ],
+  "source_files": "SwpBanner/**/*",
   "resources": "SwpBanner/SwpBannerResources/SwpBanner.bundle",
-  "requires_arc": true,
   "frameworks": [
     "UIKit",
     "Foundation"
