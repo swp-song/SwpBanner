@@ -11,21 +11,51 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface SwpBannerCell : UICollectionViewCell
 
-/*! 显示图片的名称     !*/
-@property (nonatomic, copy  ) NSString *imageName;
-/*! placeholderImage   !*/
-@property (nonatomic, strong) UIImage  *placeholderImage;
-/*! 是否 加载 远程 url !*/
-@property (nonatomic, assign, getter=isLoadNetworkImage) BOOL loadNetworkImage;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  setImageName:   ( Override setImageName )
+ *  @brief  swpBannerCellWithCollectionView:forCellReuseIdentifier:forIndexPath:    ( 快速初始化一个 Cell )
  *
- *  @ param  imageName
+ *  @param  collectionView  collectionView
+ *
+ *  @param  identifier      identifier
+ *
+ *  @param  indexPath       indexPath
+ *
+ *  @return UICollectionViewCell
  */
-- (void)setImageName:(NSString *)imageName;
++ (instancetype)swpBannerCellWithCollectionView:(UICollectionView *)collectionView forCellReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerCellInit   ( 快速初始化一个 Cell )
+ */
++ (__kindof SwpBannerCell * _Nonnull (^)(UICollectionView * _Nonnull, NSString * _Nonnull, NSIndexPath * _Nonnull))swpBannerCellInit;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  image   ( 设置图片 )
+ */
+- (SwpBannerCell * _Nonnull (^)(id _Nonnull))image;
+
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  placeholderImage   ( 设置站位图片 )
+ */
+- (SwpBannerCell * _Nonnull (^)(id _Nonnull))placeholderImage;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  loadNetworkImage    ( 设置是否加载网络图片 )
+ */
+- (SwpBannerCell * _Nonnull (^)(BOOL))loadNetworkImage;
+
 
 @end
 NS_ASSUME_NONNULL_END

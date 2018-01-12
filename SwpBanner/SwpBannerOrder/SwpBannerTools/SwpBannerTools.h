@@ -13,12 +13,12 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface SwpBannerTools : NSObject
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBannerToolsGetDefaultNetworkLoadPlaceholderImage:   ( 获取默认 Placeholder Image )
+ *  @brief  swpBannerToolsGetDefaultNetworkLoadPlaceholderImage:    ( 获取默认 Placeholder Image )
  *
- *  @ return UIImage
+ *  @return UIImage
  */
 + (UIImage *)swpBannerToolsGetDefaultNetworkLoadPlaceholderImage;
 

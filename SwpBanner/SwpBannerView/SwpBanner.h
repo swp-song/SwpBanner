@@ -13,129 +13,131 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^SwpBannerDidSelectCellBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath);
+typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath);
 
 @interface SwpBanner : UIView
 
-/*! 设置 swpBanner 数据源属性                               !*/
-@property (nonatomic, weak) id<SwpBannerDataSource> dataSource;
-/*! 设置 swpBanner 代理属性                                 !*/
-@property (nonatomic, weak) id<SwpBannerDelegate> delegate;
-/*! 设置 swpBanner 定时时间               default 5s        !*/
-@property (nonatomic, assign)  CGFloat swpBannerTime;
-/*! 设置 swpBanner 是否自定义cell          default NO       !*/
-@property (nonatomic, assign, getter = isSwpBannerCustomCell)        BOOL swpBannerCustomCell;
-/*! 设置 swpBanner 是否加载 远程url 图片   default YES      !*/
-@property (nonatomic, assign, getter = isSwpBannerLoadNetworkImage)  BOOL swpBannerLoadNetworkImage;
-/*! 设置 swpBanner 是否 开启 弹簧效果      default YES      !*/
-@property (nonatomic, assign, getter = isSwpBannerBounces)           BOOL swpBannerBounces;
-/*! 设置 swpBanner 中 PagesColor 是否 隐藏 default 是 NO    !*/
-@property (nonatomic, assign, getter = isSwpBannerPageControlHidden) BOOL swpBannerPageControlHidden;
-/*! 设置 swpBanner 中 PagesColor 总页数的颜色               !*/
-@property (nonatomic, strong) UIColor *swpNumberOfPagesColor;
-/*! 设置 swpBanner 中 PagesColor 当前页数的颜色             !*/
-@property (nonatomic, strong) UIColor *swpCurrentPageColor;
-
-#pragma mark - Setting SwpBannerView Propertys Methods
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  setSwpBannerTime:   ( 设置 swpBannerTime 定时时间 )
- *
- *  @ param  swpBannerTime       ( default 0.5s )
+ *  @brief  dataSource: ( 设置数据源 )
  */
-- (void)setSwpBannerTime:(CGFloat)swpBannerTime;
+- (SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull))dataSource;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  setSwpBannerCustomCell:     ( 设置 swpBanner 是否自定义cell )
- *
- *  @ param  swpBannerCustomCell         ( default NO < YES使用自动cell , NO 使用默认cell > )
+ *  @brief  delegate    ( 设置代理 )
  */
-- (void)setSwpBannerCustomCell:(BOOL)swpBannerCustomCell;
+- (SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nonnull))delegate;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  setSwpBannerLoadNetworkImage:   ( 设置 swpBanner 是否加载远程url )
- *
- *  @ param  swpBannerLoadNetworkImage       ( default NO < YES 加载远程 url, NO 加载本地图片 >)
+ *  @brief  timer   ( 设置定时器 )
  */
-- (void)setSwpBannerLoadNetworkImage:(BOOL)swpBannerLoadNetworkImage;
+- (SwpBanner * _Nonnull (^)(CGFloat))timer;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  setSwpBannerBounces:    ( 设置 swpBanner  弹簧效果 )
- *
- *  @ param  swpBannerBounces        ( default YES < YES 开启, NO 关闭 > )
+ *  @brief  swpBannerTimer  ( 设置是否加载网络URL )
  */
-- (void)setSwpBannerBounces:(BOOL)swpBannerBounces;
+- (SwpBanner * _Nonnull (^)(BOOL))isLoadNetworkImage;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  setSwpBannerPageControlHidden:  (设置 swpBanner 中 PagesColor 是否隐藏 )
- *
- *  @ param  swpBannerPageControlHidden      ( default NO <YES 隐藏, NO 显示> )
+ *  @brief  totalPageColor  ( 设置分页总页数颜色 )
  */
-- (void)setSwpBannerPageControlHidden:(BOOL)swpBannerPageControlHidden;
+- (SwpBanner * _Nonnull (^)(UIColor * _Nonnull))totalPageColor;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief setSwpNumberOfPagesColor:        (设置 swpBanner 中 PagesColor 总页数的颜色 )
- *
- *  @ param swpNumberOfPagesColor
+ *  @brief  currentPageColor    ( 设置分页当前页数颜色 )
  */
-- (void)setSwpNumberOfPagesColor:(UIColor *)swpNumberOfPagesColor;
+- (SwpBanner * _Nonnull (^)(UIColor * _Nonnull))currentPageColor;
 
-
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief setSwpCurrentPageColor:  (设置 swpBanner 中 PagesColor 当前页数的颜色)
- *
- *  @ param swpCurrentPageColor
+ *  @brief  isCustomCell    ( 设置是否自定义 cell )
  */
-- (void)setSwpCurrentPageColor:(UIColor *)swpCurrentPageColor;
+- (SwpBanner * _Nonnull (^)(BOOL))isCustomCell;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBannerRegisterClass:     ( swpBanner 注册一个cell )
- *
- *  @ param  cellClass
- *
- *  @ param  identifier
+ *  @brief  bounces ( 是否开启弹簧效果 )
  */
-- (void)swpBannerRegisterClass:(nullable Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier;
+- (SwpBanner * _Nonnull (^)(BOOL))bounces;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBannerReloadData ( swpBanner 数据刷新 )
+ *  @brief  pageControlHidden   (  PagesColor 是否隐藏 )
  */
-- (void)swpBannerReloadData;
+- (SwpBanner * _Nonnull (^)(BOOL))pageControlHidden;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBannerDidSelectCell: ( 点击每个 cell 回调 )
- *
- *  @ param  swpBannerDidSelectCell
+ *  @brief  reloadData  ( 刷新数据 )
  */
-- (void)swpBannerDidSelectCell:(SwpBannerDidSelectCellBlock)swpBannerDidSelectCell;
+- (void)reloadData;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBannerGetDefaultNetworkLoadPlaceholderImage: ( 获取默认 Placeholder Image )
+ *  @brief  reloadDataChain ( 刷新数据 )
+ */
+- (SwpBanner * _Nonnull (^)(void))reloadDataChain;
+
+/**
+ *  @author swp_song
  *
- *  @ return UIImage
+ *  @brief  registerClass:forCellWithReuseIdentifier:   ( SwpBanner 注册一个 cell )
+ *
+ *  @param  cellClass   cellClass
+ *
+ *  @param  identifier  identifier
+ */
+- (void)registerClass:(Class _Nullable)cellClass forCellWithReuseIdentifier:(NSString *)identifier;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  registerClass:  ( SwpBanner 注册一个 cell )
+ */
+- (SwpBanner * _Nonnull (^)(Class  _Nullable __unsafe_unretained, NSString * _Nonnull))registerClass;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerClickBlock:    ( SwpBanner 回调方法，点击每个 Banner 调用  )
+ *
+ *  @param  swpBannerClickBlock swpBannerClickBlock
+ */
+- (void)swpBannerClickBlock:(SwpBannerClickBlock _Nullable)swpBannerClickBlock;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerClick  ( SwpBanner 回调方法，点击每个 Banner 调用  )
+ */
+- (SwpBanner * _Nonnull (^)(SwpBannerClickBlock _Nullable))swpBannerClick;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerGetDefaultNetworkLoadPlaceholderImage: ( 获取默认 Placeholder Image )
+ *
+ *  @return UIImage
  */
 - (UIImage *)swpBannerGetDefaultNetworkLoadPlaceholderImage;
+
+
 
 @end
 

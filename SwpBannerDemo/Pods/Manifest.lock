@@ -1,17 +1,25 @@
 PODS:
-  - Masonry (1.0.2)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - Masonry (1.1.0)
+  - SDWebImage (4.2.3):
+    - SDWebImage/Core (= 4.2.3)
+  - SDWebImage/Core (4.2.3)
+  - SwpBanner (1.3.3):
+    - SDWebImage
 
 DEPENDENCIES:
   - Masonry
   - SDWebImage
+  - SwpBanner (from `../`)
+
+EXTERNAL SOURCES:
+  SwpBanner:
+    :path: ../
 
 SPEC CHECKSUMS:
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+  SwpBanner: df5505a5e84aab79fce43bf95952159a041a962d
 
-PODFILE CHECKSUM: 567ad1aaddba2e494dd5198e33f56c90eeb70485
+PODFILE CHECKSUM: 61ba29f2050c5ea9c67a3d76c90e24bc3ae77633
 
-COCOAPODS: 1.2.0.beta.3
+COCOAPODS: 1.4.0.rc.1

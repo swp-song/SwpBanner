@@ -14,59 +14,59 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol SwpBannerDataSource <NSObject>
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBanner:numberOfItemsInSection:   ( 设置 SwpBanner 每个分组显示数据的个数 )
+ *  @brief  swpBanner:numberOfItemsInSection:   ( SwpBanner 数据源方法，设置 SwpBanner 每个分组显示数据的个数 )
  *
- *  @ param  swpBanner
+ *  @param  swpBanner   swpBanner
  *
- *  @ param  section
+ *  @param  section     section
  *
- *  @ return NSInteger
+ *  @return NSInteger
  */
 - (NSInteger)swpBanner:(SwpBanner *)swpBanner numberOfItemsInSection:(NSInteger)section;
 
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBanner:cellImageForItemAtIndexPath   ( 设置 SwpBanner 显示默认的cell 显示图片的名称 | 远程 URL )
+ *  @brief  swpBanner:cellImageForItemAtIndexPath:  ( SwpBanner 数据源方法，设置 SwpBanner 显示默认的 Cell 显示图片的名称 | 远程 URL，注意: swpCustomCell 值 为 NO 时 才会调用， swpCustomCell 默认为 NO )
  *
- *  @ param  swpBanner           ( 注意: swpCustomCell 值 为 NO 时 才会调用， swpCustomCell 默认为 NO )
+ *  @param  swpBanner   swpBanner
  *
- *  @ param  indexPath
+ *  @param  indexPath   indexPath
  *
- *  @ return NSString
+ *  @return id
  */
-- (NSString *)swpBanner:(SwpBanner *)swpBanner cellImageForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (id)swpBanner:(SwpBanner *)swpBanner cellImageForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 
 @optional
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBannerNmberOfSections    ( 设置 SwpBanner 分组的个数 )
+ *  @brief  swpBannerNmberOfSections:   ( SwpBanner 数据源方法，设置 SwpBanner 分组的个数 )
  *
- *  @ param  swpBanner
+ *  @param  swpBanner   swpBanner
  *
- *  @ return NSInteger
+ *  @return NSInteger   NSInteger
  */
 - (NSInteger)swpBannerNmberOfSections:(SwpBanner *)swpBanner;
 
 
-/*!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBannerView:collectionView:cellForItemAtIndexPath ( 设置 SwpBanner 自定义分组中 cell 显示的数据 | 样式 )
+ *  @brief  swpBanner:collectionView:cellForItemAtIndexPath:    ( SwpBanner 数据源方法，设置 SwpBanner 自定义分组中 cell 显示的数据 | 样式 )
  *
- *  @ param  swpBanner
+ *  @param  swpBanner       swpBanner
  *
- *  @ param  collectionView
+ *  @param  collectionView  collectionView
  *
- *  @ param  indexPath
+ *  @param  indexPath       indexPath
  *
- *  @ return UICollectionViewCell
+ *  @return UICollectionViewCell
  */
 - (UICollectionViewCell *)swpBanner:(SwpBanner *)swpBanner collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 

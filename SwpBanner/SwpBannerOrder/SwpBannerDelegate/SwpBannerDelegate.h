@@ -14,46 +14,44 @@ NS_ASSUME_NONNULL_BEGIN
 /*! SwpBannerView 代理协议 !*/
 @optional
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBanner:didSelectItemAtIndexPath: ( swpBannerView 点击每个cell调用 )
+ *  @brief  swpBanner:didSelectItemAtIndexPath: ( SwpBanner 代理方法，点击每个 Cell 调用 )
  *
- *  @ param  swpBanner
+ *  @param  swpBanner   swpBanner
  *
- *  @ param  indexPath
+ *  @param  indexPath   indexPath
  */
 - (void)swpBanner:(SwpBanner *)swpBanner didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBanner:collectionView:layout:sizeForItemAtIndexPath: ( 设置 swpBannerView 每个cell的宽高 )
+ *  @brief  swpBanner:collectionView:layout:sizeForItemAtIndexPath: ( SwpBanner 代理方法，设置每个 Cell 的宽高 )
  *
- *  @ param  swpBanner
+ *  @param  swpBanner               swpBanner
  *
- *  @ param  collectionView
+ *  @param  collectionView          collectionView
  *
- *  @ param  collectionViewLayout
+ *  @param  collectionViewLayout    collectionViewLayout
  *
- *  @ param  indexPath
+ *  @param  indexPath               indexPath
  *
- *  @ return CGSize
+ *  @return CGSize
  */
 - (CGSize)swpBanner:(SwpBanner *)swpBanner collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBanner:setNetworkLoadPlaceholderImageCellIndexPath: ( 设置 网络加载图片 PlaceholderImage )
+ *  @brief  swpBanner:setNetworkLoadPlaceholderImageCellIndexPath: ( SwpBanner 代理方法，设置网络加载图片 PlaceholderImage )
  *
- *  @ param  swpBanner
+ *  @param  swpBanner   swpBanner
  *
- *  @ param  indexPath
- *
- *  @ return UIImage
+ *  @param  indexPath   indexPath
  */
-- (UIImage *)swpBanner:(SwpBanner *)swpBanner setNetworkLoadPlaceholderImageCellIndexPath:(NSIndexPath *)indexPath;
+- (id)swpBanner:(SwpBanner *)swpBanner setNetworkLoadPlaceholderImageCellIndexPath:(NSIndexPath *)indexPath;
 
 @end
 NS_ASSUME_NONNULL_END

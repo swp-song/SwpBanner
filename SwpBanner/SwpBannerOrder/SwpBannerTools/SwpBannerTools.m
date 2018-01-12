@@ -13,12 +13,12 @@
 
 @implementation SwpBannerTools
 
-/**!
- *  @ author swp_song
+/**
+ *  @author swp_song
  *
- *  @ brief  swpBannerToolsGetDefaultNetworkLoadPlaceholderImage:   ( 获取默认 Placeholder Image )
+ *  @brief  swpBannerToolsGetDefaultNetworkLoadPlaceholderImage:    ( 获取默认 Placeholder Image )
  *
- *  @ return UIImage
+ *  @return UIImage
  */
 + (UIImage *)swpBannerToolsGetDefaultNetworkLoadPlaceholderImage {
     return [UIImage imageNamed:@"SwpBanner.bundle/SwpBannerPlaceholderImage"];

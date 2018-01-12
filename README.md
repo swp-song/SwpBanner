@@ -1,105 +1,67 @@
 #SwpBanner
 
 
-##### SwpBanner 封装 简单 图片轮播器
+### SwpBanner 
 
----
-##### 效果：
-![(图片轮播效果)](https://raw.githubusercontent.com/swp-song/SwpBanner/master/Screenshot/SwpBanner.gif)
----
+-------
 
-```
-SwpBanner 封装 简单 图片轮播器, 可加载本地图片，和远程图片，SwpBanner 依赖 SDWebImage 加载远程图片
-```
+### 效果：
+> ![(图片轮播效果)](https://raw.githubusercontent.com/swp-song/SwpBanner/master/Screenshot/SwpBanner.gif)
 
----
+> -------
 
-[SDWebImage](https://github.com/rs/SDWebImage)
+> * SwpBanner 封装 简单 图片轮播器, 可加载本地图片，和远程图片，SwpBanner 依赖 SDWebImage 加载远程图片
+> 
 
----
+-------
 
-##### 导入：
-```ruby
-手动导入：
 
-SwpBanner 文件夹 导入 项目 中, 依赖 SDWebImage
-#import "SwpBannerHeader.h"
+### 导入
+> * 手动导入：
+> 
+>> * **SwpBanner** 文件夹导入项目中。
+>> * **`#import "SwpBannerHeader.h"`**
+>> * 依赖库 **SDWebImage** , 需要手动导入。
+>> **[SDWebImage](https://github.com/rs/SDWebImage)**
 
-CocoaPods 导入:
+> -------
 
-使用  CocoaPods 会自动 pod SDWebImage
+> * CocoaPods 导入:
+> 
+>> * **pod search SwpBanner**
+>> * **pod 'SwpBanner'**
+>> * **`#import <SwpBanner/SwpBannerHeader.h>`**
+>> * **pod** 导入会自动添加依赖库, 无需手动导入
 
-pod search SwpBanner
+-------
 
-pod 'SwpBanner'
+### 版本记录
 
-#import <SwpBanner/SwpBannerHeader.h>
+-------
+> * 版本版本：2.0.0
+> * 更新时间：2018-01-12 15:02:30
+> * 更新内容：
+    *  方法更替，版本大更新
+    
+-------
 
-```
+> * 版本版本：1.3.3
+> * 更新时间：2017-09-25 15:51:59
+> * 更新内容：
+    * 解决 Xcode 9 编译的一些警告问题
+    
+-------
 
----
+### 备注
 
-##### 1.3.2 更新:
+> * 持续更新, 如果喜欢, 欢迎 Star
 
-```Objective-C
+-------
 
-  1. 2017-01-04 14:59:21
+### 声明
 
-  2. 更新 演示 效果 gif 图片
+ > * **著作权归 ©swp_song，如需转载请标明出处**
 
-```
+-------
 
----
 
-##### 1.3.1 更新:
-
-```Objective-C
-
-  1. 2017-01-04 14:30:34
-
-  2. 更新 图片资源文件
-
-```
-
----
-
-##### 1.3.0 更新:
-
-```Objective-C
-
-  1. 2017-01-04 13:39:35
-
-  2. 新增 网络 加载图片 Placeholder Image 代理方法
-
-  3. 新增 获取 框架内 默认 Placeholder Image 图片 方法
-
-  4. Demo 重写
-
-```
-
----
-
-##### 1.2.1 更新:
-```Objective-C
-
-  1. 2017-01-03 17:32:20
-
-  2. 删除多余文件
-
-```
-
----
-
-##### 1.2.0 更新:
-```Objective-C
-
-  1. 2017-01-03 16:48:10
-
-  2. 备注整合, 代码抽取
-
-```
-
----
-##### 备注:
-```
-```
