@@ -1,6 +1,6 @@
 {
   "name": "SwpBanner",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "summary": "封装图片轮播控件",
   "description": "TODO: 封装图片轮播控件",
   "homepage": "https://github.com/swp-song/SwpBanner",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/swp-song/SwpBanner.git",
-    "tag": "2.0.7"
+    "tag": "2.0.8"
   },
   "platforms": {
     "ios": "8.0"
