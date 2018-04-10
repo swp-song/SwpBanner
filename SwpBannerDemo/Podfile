@@ -12,7 +12,7 @@ target 'SwpBannerDemo' do
 
   # Pods for SwpBannerDemo
   inhibit_all_warnings!
-  
+
   pod 'SwpBanner', :path => '../'
   pod 'Masonry'
   pod 'SDWebImage'

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name    = 'SwpBanner'
-  s.version = '2.0.8'
+  s.version = '2.1.0'
   s.summary = ' 封装图片轮播控件 '
 
 # This description is used to generate tags and improve search results.
@@ -30,17 +30,14 @@ TODO: 封装图片轮播控件
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-
-  s.source_files  = 'SwpBanner/**/*.{h,m}'
-
-  s.resource      = 'SwpBanner/SwpBannerResources/SwpBanner.bundle'
-
+  s.source_files          = 'SwpBanner/Class/**/*.{h,m}'
+  s.resource              = 'SwpBanner/Resources/SwpBanner.bundle'
+  s.requires_arc          = true
+  s.framework             = 'UIKit', 'Foundation'
   # s.resource_bundles = {
   #   'SwpBanner' => ['SwpBanner/Assets/*.png']
   # }
 
-  s.framework     = "UIKit", "Foundation"
-
-  s.dependency "SDWebImage"
+  s.dependency 'SDWebImage'
 
 end

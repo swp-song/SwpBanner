@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol SwpBannerDelegate <NSObject>
 
-/*! SwpBannerView 代理协议 !*/
+/* SwpBannerView 代理协议 */
 @optional
 
 /**

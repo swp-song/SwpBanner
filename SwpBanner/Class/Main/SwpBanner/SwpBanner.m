@@ -17,14 +17,12 @@
 
 /* ---------------------- View       ---------------------- */
 #import "SwpBannerView.h"
-#import "SwpBannerCell.h"           //  默认轮播显示的cell
+#import "SwpBannerCell.h"           //  默认轮播显示的 Cell
 /* ---------------------- View       ---------------------- */
 
-#define PAGE_HEIGHT 20.0
-
+CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 
 @interface SwpBanner () <SwpBannerViewDelegate>
-
 
 #pragma mark - UI   Propertys
 /* ---------------------- UI   Property ---------------------- */
@@ -86,7 +84,7 @@
     
     [super layoutSubviews];
     self.swpBannerView.frame             = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-    self.swpBannerPageControlView.frame  = CGRectMake(0, self.frame.size.height - PAGE_HEIGHT, self.frame.size.width, PAGE_HEIGHT);
+    self.swpBannerPageControlView.frame  = CGRectMake(0, self.frame.size.height - kSwpBannerPageControlViewHeight, self.frame.size.width, kSwpBannerPageControlViewHeight);
 }
 
 
@@ -379,13 +377,37 @@
     }
 }
 
-#pragma mark - Set SwpBanner Propertys Methods
+#pragma mark - SwpBanner Propertys Methods
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerInfo   ( 读取 SwpBanner 信息资源文件 )
+ *
+ *  @return NSDictionary
+ */
+- (NSDictionary *)swpBannerInfo {
+    return [SwpBannerTools swpBannerToolsReadInfo];
+}
+
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerVersion    ( 读取 SwpBanner 版本号 )
+ *
+ *  @return NSString
+ */
+- (NSString *)swpBannerVersion {
+    return [SwpBannerTools swpBannerToolsReadVersion];
+}
+
 /**
  *  @author swp_song
  *
  *  @brief  dataSource: ( 设置数据源 )
  */
-- (SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull))dataSource {
+- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull))dataSource {
     return ^(id<SwpBannerDataSource>dataSource) {
         self.dataSource_ = dataSource;
         return self;
@@ -397,7 +419,7 @@
  *
  *  @brief  delegate    ( 设置代理 )
  */
-- (SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nonnull))delegate {
+- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nonnull))delegate {
     return ^(id<SwpBannerDelegate>delegate) {
         self.delegate_ = delegate;
         return self;
@@ -409,7 +431,7 @@
  *
  *  @brief  timer   ( 设置定时器 )
  */
-- (SwpBanner * _Nonnull (^)(CGFloat))timer {
+- (__kindof SwpBanner * _Nonnull (^)(CGFloat))timer {
     
     return ^(CGFloat swpBannerTimer) {
         self.swpBannerTimer_ = swpBannerTimer;
@@ -422,7 +444,7 @@
  *
  *  @brief  swpBannerTimer  ( 设置是否加载网络URL )
  */
-- (SwpBanner * _Nonnull (^)(BOOL))isLoadNetworkImage {
+- (__kindof SwpBanner * _Nonnull (^)(BOOL))isLoadNetworkImage {
     
     return ^(BOOL isLoadNetworkImage) {
         self.swpBannerView.loadNetworkImage(isLoadNetworkImage);
@@ -435,7 +457,7 @@
  *
  *  @brief  totalPageColor  ( 设置分页总页数颜色 )
  */
-- (SwpBanner * _Nonnull (^)(UIColor * _Nonnull))totalPageColor {
+- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nonnull))totalPageColor {
     return ^(UIColor *color) {
         self.swpBannerPageControlView.pageIndicatorTintColor = color;
         return self;
@@ -447,7 +469,7 @@
  *
  *  @brief  currentPageColor    ( 设置分页当前页数颜色 )
  */
-- (SwpBanner * _Nonnull (^)(UIColor * _Nonnull))currentPageColor {
+- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nonnull))currentPageColor {
     
     return ^(UIColor *color) {
         self.swpBannerPageControlView.currentPageIndicatorTintColor = color;
@@ -460,7 +482,7 @@
  *
  *  @brief  isCustomCell    ( 设置是否自定义 cell )
  */
-- (SwpBanner * _Nonnull (^)(BOOL))isCustomCell {
+- (__kindof SwpBanner * _Nonnull (^)(BOOL))isCustomCell {
     
     return ^(BOOL isCustomCell) {
         self.customCell_ = isCustomCell;
@@ -473,7 +495,7 @@
  *
  *  @brief  bounces ( 是否开启弹簧效果 )
  */
-- (SwpBanner * _Nonnull (^)(BOOL))bounces {
+- (__kindof SwpBanner * _Nonnull (^)(BOOL))bounces {
     return ^(BOOL bounces) {
         self.swpBannerView.bounces = bounces;
         return self;
@@ -485,7 +507,7 @@
  *
  *  @brief  pageControlHidden   (  PagesColor 是否隐藏 )
  */
-- (SwpBanner * _Nonnull (^)(BOOL))pageControlHidden {
+- (__kindof SwpBanner * _Nonnull (^)(BOOL))pageControlHidden {
     return ^(BOOL pageControlHidden) {
         self.swpBannerPageControlView.hidden = pageControlHidden;
         return self;
@@ -508,7 +530,7 @@
  *
  *  @brief  reloadDataChain ( 刷新数据 )
  */
-- (SwpBanner * _Nonnull (^)(void))reloadDataChain {
+- (__kindof SwpBanner * _Nonnull (^)(void))reloadDataChain {
     return ^(void) {
         [self reloadData];
         return self;
@@ -535,7 +557,7 @@
  *
  *  @brief  registerClass:  ( SwpBanner 注册一个 cell )
  */
-- (SwpBanner * _Nonnull (^)(Class  _Nonnull __unsafe_unretained, NSString * _Nonnull))registerClass {
+- (__kindof SwpBanner * _Nonnull (^)(Class  _Nonnull __unsafe_unretained, NSString * _Nonnull))registerClass {
     
     return ^(Class cellClass, NSString *identifier) {
         [self registerClass:cellClass forCellWithReuseIdentifier:identifier];
@@ -561,10 +583,10 @@
  *
  *  @brief  swpBannerClick  ( SwpBanner 回调方法，点击每个 Banner 调用  )
  */
-- (SwpBanner * _Nonnull (^)(SwpBannerClickBlock))swpBannerClick {
+- (__kindof SwpBanner * _Nonnull (^)(SwpBannerClickBlock))swpBannerClick {
     
     return ^(SwpBannerClickBlock swpBannerClickBlock) {
-        _swpBannerClickBlock = swpBannerClickBlock;
+        [self swpBannerClickBlock:swpBannerClickBlock];
         return self;
     };
 }

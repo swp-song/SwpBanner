@@ -13,10 +13,10 @@
 /* ---------------------- View       ---------------------- */
 
 
-static CGFloat   const  kItemLineSpacing      = 0;      //  cell Item 上下的间距
-static CGFloat   const  kItemInteritemSpacing = 0;      //  cell Item 左右的间距
-static CGFloat   const  kItemLRPadding        = 0;      //  cell Item 左右的边距
-static CGFloat   const  kItemTBPadding        = 0;      //  cell Item 上下的边距
+static CGFloat const kItemLineSpacing      = 0; //  cell Item 上下的间距
+static CGFloat const kItemInteritemSpacing = 0; //  cell Item 左右的间距
+static CGFloat const kItemLRPadding        = 0; //  cell Item 左右的边距
+static CGFloat const kItemTBPadding        = 0; //  cell Item 上下的边距
 
 @interface SwpBannerView () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 

@@ -1,1 +1,1 @@
-../../../../../SwpBanner/SwpBannerOrder/SwpBannerDelegate/SwpBannerDelegate.h
+../../../../../SwpBanner/Class/Main/SwpBannerDelegate/SwpBannerDelegate.h

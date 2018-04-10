@@ -8,11 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+/* ---------------------- Tool       ---------------------- */
 #import "SwpBannerDataSource.h"
 #import "SwpBannerDelegate.h"
+/* ---------------------- Tool       ---------------------- */
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXPORT CGFloat const kSwpBannerPageControlViewHeight;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  SwpBannerClickBlock ( 回调参数 )
+ *
+ *  @param  SwpBanner   SwpBanner
+ *
+ *  @param  indexPath   indexPath
+ */
 typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath);
 
 @interface SwpBanner : UIView
@@ -20,65 +33,83 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
 /**
  *  @author swp_song
  *
+ *  @brief  swpBannerInfo   ( 读取 SwpBanner 信息资源文件 )
+ *
+ *  @return NSDictionary
+ */
+- (NSDictionary *)swpBannerInfo;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerVersion    ( 读取 SwpBanner 版本号 )
+ *
+ *  @return NSString
+ */
+- (NSString *)swpBannerVersion;
+
+/**
+ *  @author swp_song
+ *
  *  @brief  dataSource: ( 设置数据源 )
  */
-- (SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull))dataSource;
+- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull))dataSource;
 
 /**
  *  @author swp_song
  *
  *  @brief  delegate    ( 设置代理 )
  */
-- (SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nonnull))delegate;
+- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nonnull))delegate;
 
 /**
  *  @author swp_song
  *
  *  @brief  timer   ( 设置定时器 )
  */
-- (SwpBanner * _Nonnull (^)(CGFloat))timer;
+- (__kindof SwpBanner * _Nonnull (^)(CGFloat))timer;
 
 /**
  *  @author swp_song
  *
  *  @brief  swpBannerTimer  ( 设置是否加载网络URL )
  */
-- (SwpBanner * _Nonnull (^)(BOOL))isLoadNetworkImage;
+- (__kindof SwpBanner * _Nonnull (^)(BOOL))isLoadNetworkImage;
 
 /**
  *  @author swp_song
  *
  *  @brief  totalPageColor  ( 设置分页总页数颜色 )
  */
-- (SwpBanner * _Nonnull (^)(UIColor * _Nonnull))totalPageColor;
+- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nonnull))totalPageColor;
 
 /**
  *  @author swp_song
  *
  *  @brief  currentPageColor    ( 设置分页当前页数颜色 )
  */
-- (SwpBanner * _Nonnull (^)(UIColor * _Nonnull))currentPageColor;
+- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nonnull))currentPageColor;
 
 /**
  *  @author swp_song
  *
  *  @brief  isCustomCell    ( 设置是否自定义 cell )
  */
-- (SwpBanner * _Nonnull (^)(BOOL))isCustomCell;
+- (__kindof SwpBanner * _Nonnull (^)(BOOL))isCustomCell;
 
 /**
  *  @author swp_song
  *
  *  @brief  bounces ( 是否开启弹簧效果 )
  */
-- (SwpBanner * _Nonnull (^)(BOOL))bounces;
+- (__kindof SwpBanner * _Nonnull (^)(BOOL))bounces;
 
 /**
  *  @author swp_song
  *
  *  @brief  pageControlHidden   (  PagesColor 是否隐藏 )
  */
-- (SwpBanner * _Nonnull (^)(BOOL))pageControlHidden;
+- (__kindof SwpBanner * _Nonnull (^)(BOOL))pageControlHidden;
 
 /**
  *  @author swp_song
@@ -92,7 +123,7 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  *
  *  @brief  reloadDataChain ( 刷新数据 )
  */
-- (SwpBanner * _Nonnull (^)(void))reloadDataChain;
+- (__kindof SwpBanner * _Nonnull (^)(void))reloadDataChain;
 
 /**
  *  @author swp_song
@@ -110,7 +141,7 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  *
  *  @brief  registerClass:  ( SwpBanner 注册一个 cell )
  */
-- (SwpBanner * _Nonnull (^)(Class  _Nullable __unsafe_unretained, NSString * _Nonnull))registerClass;
+- (__kindof SwpBanner * _Nonnull (^)(Class  _Nullable __unsafe_unretained, NSString * _Nonnull))registerClass;
 
 /**
  *  @author swp_song
@@ -126,7 +157,7 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  *
  *  @brief  swpBannerClick  ( SwpBanner 回调方法，点击每个 Banner 调用  )
  */
-- (SwpBanner * _Nonnull (^)(SwpBannerClickBlock _Nullable))swpBannerClick;
+- (__kindof SwpBanner * _Nonnull (^)(SwpBannerClickBlock _Nullable))swpBannerClick;
 
 /**
  *  @author swp_song
@@ -136,7 +167,6 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  *  @return UIImage
  */
 - (UIImage *)swpBannerGetDefaultNetworkLoadPlaceholderImage;
-
 
 
 @end

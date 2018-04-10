@@ -55,6 +55,9 @@
     // Do any additional setup after loading the view.
     
     
+    NSLog(@"SwpBannerInfo       = %@", self.swpBanner.swpBannerInfo);
+    NSLog(@"SwpBannerVersion    = %@", self.swpBanner.swpBannerVersion);
+    
     self.swpBanner.delegate(self).dataSource(self);
     
     [self setUI];

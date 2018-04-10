@@ -1,1 +1,1 @@
-../../../../../SwpBanner/SwpBannerView/SwpBannerCell.h
+../../../../../SwpBanner/Class/SwpBannerView/SwpBannerCell.h
