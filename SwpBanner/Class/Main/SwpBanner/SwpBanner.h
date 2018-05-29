@@ -168,6 +168,22 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  */
 - (UIImage *)swpBannerGetDefaultNetworkLoadPlaceholderImage;
 
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerBackgroundColor: ( 设置背景颜色 )
+ *
+ *  @param  color   color
+ */
+- (void)swpBannerBackgroundColor:(UIColor * _Nullable)color;
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerBackgroundColor    ( 设置背景颜色 )
+ */
+- (__kindof SwpBanner * _Nonnull (^)(UIColor *_Nullable ))swpBannerBackgroundColor;
+
 
 @end
 

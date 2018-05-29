@@ -592,17 +592,39 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 }
 
 /**
- *  @ author swp_song
+ *  @author swp_song
  *
- *  @ brief  swpBannerGetDefaultNetworkLoadPlaceholderImage: ( 获取默认 Placeholder Image )
+ *  @brief  swpBannerGetDefaultNetworkLoadPlaceholderImage: ( 获取默认 Placeholder Image )
  *
- *  @ return UIImage
+ *  @return UIImage
  */
 - (UIImage *)swpBannerGetDefaultNetworkLoadPlaceholderImage {
     return [SwpBannerTools swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
 }
 
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerBackgroundColor: ( 设置背景颜色 )
+ *
+ *  @param  color   color
+ */
+- (void)swpBannerBackgroundColor:(UIColor *)color {
+    color = color ? color : [UIColor whiteColor];
+    self.backgroundColor = self.swpBannerView.backgroundColor = color;
+}
 
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpBannerBackgroundColor    ( 设置背景颜色 )
+ */
+- (__kindof SwpBanner * _Nonnull (^)(UIColor *))swpBannerBackgroundColor {
+    return ^(UIColor *color) {
+        [self swpBannerBackgroundColor:color];
+        return self;
+    };
+}
 
 
 #pragma mark - Init UI Methods

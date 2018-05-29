@@ -3,7 +3,7 @@ PODS:
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
-  - SwpBanner (2.1.0):
+  - SwpBanner (2.2.0):
     - SDWebImage
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ DEPENDENCIES:
   - SwpBanner (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Masonry
     - SDWebImage
 
@@ -23,8 +23,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
-  SwpBanner: a424053ddb7089bd0a91983317de373f527b154f
+  SwpBanner: 55c8595309cb3f079f0cc4821c78af42afaa49a2
 
 PODFILE CHECKSUM: 31d58054b6ab2d745b64a11b4ad124c69c38e680
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
