@@ -1,8 +1,8 @@
 PODS:
   - Masonry (1.1.0)
-  - SDWebImage (4.3.3):
-    - SDWebImage/Core (= 4.3.3)
-  - SDWebImage/Core (4.3.3)
+  - SDWebImage (4.4.0):
+    - SDWebImage/Core (= 4.4.0)
+  - SDWebImage/Core (4.4.0)
   - SwpBanner (2.2.0):
     - SDWebImage
 
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  SDWebImage: b534502786e43dde36dfcaee89356fe6df30e203
   SwpBanner: 55c8595309cb3f079f0cc4821c78af42afaa49a2
 
 PODFILE CHECKSUM: 31d58054b6ab2d745b64a11b4ad124c69c38e680

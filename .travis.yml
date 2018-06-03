@@ -3,3 +3,4 @@ language: objective-c
 # path to your xcodeproj folder
 xcode_project: SwpBannerDemo/SwpBannerDemo.xcworkspace
 xcode_schemes: SwpBannerDemo
+script: true
