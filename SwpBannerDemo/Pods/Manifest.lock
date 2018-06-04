@@ -3,7 +3,7 @@ PODS:
   - SDWebImage (4.4.0):
     - SDWebImage/Core (= 4.4.0)
   - SDWebImage/Core (4.4.0)
-  - SwpBanner (2.2.0):
+  - SwpBanner (2.2.2):
     - SDWebImage
 
 DEPENDENCIES:
@@ -23,7 +23,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: b534502786e43dde36dfcaee89356fe6df30e203
-  SwpBanner: 55c8595309cb3f079f0cc4821c78af42afaa49a2
+  SwpBanner: b0e10dc775d17a70b18abd2d069473b9bd6341f9
 
 PODFILE CHECKSUM: 31d58054b6ab2d745b64a11b4ad124c69c38e680
 
