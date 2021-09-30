@@ -1,1 +1,0 @@
-../../../../../SwpBanner/Class/SwpBannerTools/SwpBannerTools.h

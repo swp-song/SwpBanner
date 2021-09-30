@@ -26,9 +26,20 @@ FOUNDATION_EXPORT CGFloat const kSwpBannerPageControlViewHeight;
  *
  *  @param  indexPath   indexPath
  */
-typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath);
+typedef void(^SwpBannerSelected)(SwpBanner *banner, NSIndexPath *indexPath);
 
 @interface SwpBanner : UIView
+
+/* DataSource */
+@property (nonatomic, weak) id<SwpBannerDataSource>dataSource;
+/* Delegate */
+@property (nonatomic, weak) id<SwpBannerDelegate>delegate;
+/* 是否自定义成 cell */
+@property (nonatomic, assign, getter=isCustomCell) BOOL customCell;
+/* 定时时间 */
+@property (nonatomic, assign) CGFloat timer;
+
+@property (nonatomic, copy, setter=swpBannerSelected:) SwpBannerSelected bannerSelected;
 
 /**
  *  @author swp_song
@@ -37,7 +48,7 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  *
  *  @return NSDictionary
  */
-- (NSDictionary *)swpBannerInfo;
+- (NSDictionary *)info;
 
 /**
  *  @author swp_song
@@ -46,28 +57,28 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  *
  *  @return NSString
  */
-- (NSString *)swpBannerVersion;
+- (NSString *)version;
 
 /**
  *  @author swp_song
  *
  *  @brief  dataSource: ( 设置数据源 )
  */
-- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull))dataSource;
+- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull))swp_dataSource;
 
 /**
  *  @author swp_song
  *
  *  @brief  delegate    ( 设置代理 )
  */
-- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nonnull))delegate;
+- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nullable delegate))swp_delegate;
 
 /**
  *  @author swp_song
  *
  *  @brief  timer   ( 设置定时器 )
  */
-- (__kindof SwpBanner * _Nonnull (^)(CGFloat))timer;
+- (__kindof SwpBanner * _Nonnull (^)(CGFloat timer))swp_timer;
 
 /**
  *  @author swp_song
@@ -95,7 +106,7 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  *
  *  @brief  isCustomCell    ( 设置是否自定义 cell )
  */
-- (__kindof SwpBanner * _Nonnull (^)(BOOL))isCustomCell;
+- (__kindof SwpBanner * _Nonnull (^)(BOOL customCell))swp_customCell;
 
 /**
  *  @author swp_song
@@ -121,9 +132,9 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
 /**
  *  @author swp_song
  *
- *  @brief  reloadDataChain ( 刷新数据 )
+ *  @brief  swp_reloadData ( 刷新数据 )
  */
-- (__kindof SwpBanner * _Nonnull (^)(void))reloadDataChain;
+- (__kindof SwpBanner * _Nonnull (^)(void))swp_reloadData;
 
 /**
  *  @author swp_song
@@ -141,23 +152,14 @@ typedef void(^SwpBannerClickBlock)(SwpBanner *SwpBanner, NSIndexPath *indexPath)
  *
  *  @brief  registerClass:  ( SwpBanner 注册一个 cell )
  */
-- (__kindof SwpBanner * _Nonnull (^)(Class  _Nullable __unsafe_unretained, NSString * _Nonnull))registerClass;
-
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerClickBlock:    ( SwpBanner 回调方法，点击每个 Banner 调用  )
- *
- *  @param  swpBannerClickBlock swpBannerClickBlock
- */
-- (void)swpBannerClickBlock:(SwpBannerClickBlock _Nullable)swpBannerClickBlock;
+- (__kindof SwpBanner * _Nonnull (^)(Class  _Nonnull cellClass, NSString * _Nonnull identifier))swp_registerClass;
 
 /**
  *  @author swp_song
  *
  *  @brief  swpBannerClick  ( SwpBanner 回调方法，点击每个 Banner 调用  )
  */
-- (__kindof SwpBanner * _Nonnull (^)(SwpBannerClickBlock _Nullable))swpBannerClick;
+- (__kindof SwpBanner * _Nonnull (^)(SwpBannerSelected _Nullable swpBannerSelected))swp_bannerSelected;
 
 /**
  *  @author swp_song

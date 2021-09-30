@@ -9,7 +9,7 @@
 #import "SwpBanner.h"
 
 /* ---------------------- Tool       ---------------------- */
-#import "SwpBannerTools.h"              //  工具
+#import "SwpBannerUtils.h"              //  工具
 /* ---------------------- Tool       ---------------------- */
 
 /* ---------------------- Model      ---------------------- */
@@ -34,24 +34,24 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 
 #pragma mark - Data Propertys
 /* ---------------------- Data Property ---------------------- */
-/* DataSource */
-@property (nonatomic, weak) id<SwpBannerDataSource>dataSource_;
-/* Delegate */
-@property (nonatomic, weak) id<SwpBannerDelegate>delegate_;
-/* 定时器 */
-@property (nonatomic, assign) CGFloat   swpBannerTimer_;
-/* 是否自定义成 cell */
-@property (nonatomic, assign, getter = isCustomCell_) BOOL customCell_;
+
 /* section */
 @property (nonatomic, assign) NSInteger section;
-/* section */
-@property (nonatomic, copy, setter = swpBannerClickBlock:) SwpBannerClickBlock swpBannerClickBlock;
+
 /* ---------------------- Data Property ---------------------- */
 
 @end
 
 
 @implementation SwpBanner
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    
+    if (self = [super initWithCoder:coder]) {
+        [self config];
+    }
+    return self;
+}
 
 /**
  *  @author swp_song
@@ -65,14 +65,17 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 - (instancetype)initWithFrame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
-        
-        self.swpBannerView.swpBannerViewDelegate(self).loadNetworkImage(YES);
-        
-        [self addUI];
-        
-        [self setInitData];
+        [self config];
     }
     return self;
+}
+
+- (void)config {
+    self.swpBannerView.swpBannerViewDelegate(self).loadNetworkImage(YES);
+    
+    [self setupUI];
+    
+    [self setInitData];
 }
 
 /**
@@ -81,7 +84,6 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *  @ brief  layoutSubviews (Override layoutSubviews)
  */
 - (void)layoutSubviews {
-    
     [super layoutSubviews];
     self.swpBannerView.frame             = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     self.swpBannerPageControlView.frame  = CGRectMake(0, self.frame.size.height - kSwpBannerPageControlViewHeight, self.frame.size.width, kSwpBannerPageControlViewHeight);
@@ -96,14 +98,10 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  */
 - (void)setInitData {
     
-    self.bounces(YES);
-    
-    self.isCustomCell(NO);
-    
-    self.pageControlHidden(NO);
+    self.bounces(YES).swp_customCell(NO).pageControlHidden(NO);
 
     // 设置 pageControlView 总页数
-    self.swpBannerPageControlView.numberOfPages = [self.dataSource_ swpBanner:self numberOfItemsInSection:self.section];
+    self.swpBannerPageControlView.numberOfPages = [self.dataSource swpBanner:self numberOfItemsInSection:self.section];
 
     // 设置 pageControlView 当前也数
     self.swpBannerPageControlView.currentPage   = 0;
@@ -111,12 +109,7 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 
 
 #pragma mark - Set UI Methods
-/**
- *  @ author swp_song
- *
- *  @ brief  addUI ( 添加 UI 控件 )
- */
-- (void)addUI {
+- (void)setupUI {
     [self addSubview:self.swpBannerView];
     [self addSubview:self.swpBannerPageControlView];
 }
@@ -135,8 +128,8 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  */
 - (NSInteger)swpBannerView:(SwpBannerView *)swpBannerView numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
-    if ([self.dataSource_ respondsToSelector:@selector(swpBannerNmberOfSections:)]) {
-        return [self.dataSource_ swpBannerNmberOfSections:self];
+    if ([self.dataSource respondsToSelector:@selector(swpBannerNmberOfSections:)]) {
+        return [self.dataSource swpBannerNmberOfSections:self];
     }
     return 1;
 }
@@ -156,7 +149,7 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  */
 - (NSInteger)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     self.section = section;
-    return [self.dataSource_ swpBanner:self numberOfItemsInSection:section];
+    return [self.dataSource swpBanner:self numberOfItemsInSection:section];
 }
 
 /**
@@ -174,10 +167,10 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  */
 - (UICollectionViewCell *)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (!self.isCustomCell_) {
+    if (!self.isCustomCell) {
         return nil;
     } else {
-        return [self.dataSource_ swpBanner:self collectionView:collectionView cellForItemAtIndexPath:indexPath];
+        return [self.dataSource swpBanner:self collectionView:collectionView cellForItemAtIndexPath:indexPath];
     }
 }
 
@@ -193,7 +186,7 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *  @return id
  */
 - (id)swpBannerView:(SwpBannerView *)swpBannerView cellImageForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.dataSource_ swpBanner:self cellImageForItemAtIndexPath:indexPath];
+    return [self.dataSource swpBanner:self cellImageForItemAtIndexPath:indexPath];
 }
 
 /**
@@ -209,16 +202,16 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  */
 - (id)swpBannerView:(SwpBannerView *)swpBannerView loadPlaceholderImageForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ([self.delegate_ respondsToSelector:@selector(swpBanner:loadNetworkPlaceholderImageAtIndexPath:)]) {
+    if ([self.delegate respondsToSelector:@selector(swpBanner:loadNetworkPlaceholderImageAtIndexPath:)]) {
         
-        id image = [self.delegate_ swpBanner:self loadNetworkPlaceholderImageAtIndexPath:indexPath];
+        id image = [self.delegate swpBanner:self loadNetworkPlaceholderImageAtIndexPath:indexPath];
         
-        if (!image) return [SwpBannerTools swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
+        if (image != nil) return image;
         
-        return image;
+        return [SwpBannerUtils swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
     }
     
-    return [SwpBannerTools swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
+    return [SwpBannerUtils swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
 }
 
 /**
@@ -235,10 +228,10 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 - (void)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    if (self.swpBannerClickBlock) self.swpBannerClickBlock(self, indexPath);
+    if (self.bannerSelected) self.bannerSelected(self, indexPath);
     
-    if ([self.delegate_ respondsToSelector:@selector(swpBanner:didSelectItemAtIndexPath:)]) {
-        [self.delegate_ swpBanner:self didSelectItemAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(swpBanner:didSelectItemAtIndexPath:)]) {
+        [self.delegate swpBanner:self didSelectItemAtIndexPath:indexPath];
     }
 }
 
@@ -288,9 +281,6 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     self.swpBannerPageControlView.currentPage = page;
 }
 
-
-
-
 #pragma mark - Tools Methods
 /**
  *  @author swp_song
@@ -304,7 +294,7 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     [self _stopScroll];
     
     // 设置 pageControlView 总页数
-    self.swpBannerPageControlView.numberOfPages = [self.dataSource_ swpBanner:self numberOfItemsInSection:self.section];
+    self.swpBannerPageControlView.numberOfPages = [self.dataSource swpBanner:self numberOfItemsInSection:self.section];
     // 设置 pageControlView 当前也数
     self.swpBannerPageControlView.currentPage   = 0;
     
@@ -321,8 +311,8 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *  @brief  _beginScroll    ( 开始滚动 )
  */
 - (void)_beginScroll {
-    self.swpBannerTimer_ = self.swpBannerTimer_ == 0 ? 5.0 : self.swpBannerTimer_;
-    [self performSelector:@selector(_nextImage) withObject:nil afterDelay:self.swpBannerTimer_];
+    self.timer = self.timer == 0 ? 5.0 : self.timer;
+    [self performSelector:@selector(_nextImage) withObject:nil afterDelay:self.timer];
 }
 
 /**
@@ -359,7 +349,8 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 - (void)_imageCollectionViewScrollScrollLocation:(BOOL)initLocation  {
     
     //  是否实现了数据源方法
-    if (([self.dataSource_ respondsToSelector:@selector(swpBanner:numberOfItemsInSection:)] && [self.dataSource_ respondsToSelector:@selector(swpBanner:cellImageForItemAtIndexPath:)]) ||  ([self.dataSource_ respondsToSelector:@selector(swpBanner:numberOfItemsInSection:)] && [self.dataSource_ respondsToSelector:@selector(swpBanner:collectionView:cellForItemAtIndexPath:)])) {
+    if (([self.dataSource respondsToSelector:@selector(swpBanner:numberOfItemsInSection:)] && [self.dataSource respondsToSelector:@selector(swpBanner:cellImageForItemAtIndexPath:)]) ||
+        ([self.dataSource respondsToSelector:@selector(swpBanner:numberOfItemsInSection:)] && [self.dataSource respondsToSelector:@selector(swpBanner:collectionView:cellForItemAtIndexPath:)])) {
         
         NSIndexPath *currentIndexPath = [[self.swpBannerView indexPathsForVisibleItems] lastObject];
         // initLocation 值为 YES 给 nextItem 赋 初始值 = 0 回到第一张图片
@@ -367,10 +358,10 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
         NSInteger   nextSection       = currentIndexPath.section;
         // initLocation 值为 NO 需要 判断 nextItem == 等于数据源 数组的长度，等于回到第一张图片
         if (!initLocation) {
-            nextItem = nextItem == [self.dataSource_ swpBanner:self numberOfItemsInSection:self.section] ? 0 : nextItem;
+            nextItem = nextItem == [self.dataSource swpBanner:self numberOfItemsInSection:self.section] ? 0 : nextItem;
         }
         // 数据源返回的 数组 是否 为 0
-        if ([self.dataSource_ swpBanner:self numberOfItemsInSection:self.section] != 0) {
+        if ([self.dataSource swpBanner:self numberOfItemsInSection:self.section] != 0) {
             NSIndexPath *nextIndexPath    = [NSIndexPath indexPathForItem:nextItem inSection:nextSection];
             [self.swpBannerView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
         }
@@ -386,8 +377,8 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *
  *  @return NSDictionary
  */
-- (NSDictionary *)swpBannerInfo {
-    return [SwpBannerTools swpBannerToolsReadInfo];
+- (NSDictionary *)info {
+    return SwpBannerUtils.Info;
 }
 
 
@@ -398,8 +389,9 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *
  *  @return NSString
  */
-- (NSString *)swpBannerVersion {
-    return [SwpBannerTools swpBannerToolsReadVersion];
+- (NSString *)version {
+    SwpBannerUtils.Version = @"1";
+    return SwpBannerUtils.Version;
 }
 
 /**
@@ -407,9 +399,9 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *
  *  @brief  dataSource: ( 设置数据源 )
  */
-- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull))dataSource {
+- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull dataSource))swp_dataSource {
     return ^(id<SwpBannerDataSource>dataSource) {
-        self.dataSource_ = dataSource;
+        self.dataSource = dataSource;
         return self;
     };
 }
@@ -419,9 +411,9 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *
  *  @brief  delegate    ( 设置代理 )
  */
-- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nonnull))delegate {
+- (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nullable delegate))swp_delegate {
     return ^(id<SwpBannerDelegate>delegate) {
-        self.delegate_ = delegate;
+        self.delegate = delegate;
         return self;
     };
 }
@@ -431,10 +423,9 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *
  *  @brief  timer   ( 设置定时器 )
  */
-- (__kindof SwpBanner * _Nonnull (^)(CGFloat))timer {
-    
-    return ^(CGFloat swpBannerTimer) {
-        self.swpBannerTimer_ = swpBannerTimer;
+- (__kindof SwpBanner * _Nonnull (^)(CGFloat timer))swp_timer {
+    return ^(CGFloat timer) {
+        self.timer = timer;
         return self;
     };
 }
@@ -482,10 +473,10 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *
  *  @brief  isCustomCell    ( 设置是否自定义 cell )
  */
-- (__kindof SwpBanner * _Nonnull (^)(BOOL))isCustomCell {
+- (__kindof SwpBanner * _Nonnull (^)(BOOL customCell))swp_customCell {
     
-    return ^(BOOL isCustomCell) {
-        self.customCell_ = isCustomCell;
+    return ^(BOOL customCell) {
+        self.customCell = customCell;
         return self;
     };
 }
@@ -530,7 +521,7 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *
  *  @brief  reloadDataChain ( 刷新数据 )
  */
-- (__kindof SwpBanner * _Nonnull (^)(void))reloadDataChain {
+- (__kindof SwpBanner * _Nonnull (^)(void))swp_reloadData {
     return ^(void) {
         [self reloadData];
         return self;
@@ -557,36 +548,22 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *
  *  @brief  registerClass:  ( SwpBanner 注册一个 cell )
  */
-- (__kindof SwpBanner * _Nonnull (^)(Class  _Nonnull __unsafe_unretained, NSString * _Nonnull))registerClass {
-    
-    return ^(Class cellClass, NSString *identifier) {
+- (__kindof SwpBanner * _Nonnull (^)(Class  _Nonnull cellClass, NSString * _Nonnull identifier))swp_registerClass {
+    return ^(Class  _Nonnull cellClass, NSString * _Nonnull identifier) {
         [self registerClass:cellClass forCellWithReuseIdentifier:identifier];
         return self;
     };
 }
-
-
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerClickBlock:    ( SwpBanner 回调方法，点击每个 Banner 调用  )
- *
- *  @param  swpBannerClickBlock swpBannerClickBlock
- */
-- (void)swpBannerClickBlock:(SwpBannerClickBlock)swpBannerClickBlock {
-    _swpBannerClickBlock = swpBannerClickBlock;
-}
-
 
 /**
  *  @author swp_song
  *
  *  @brief  swpBannerClick  ( SwpBanner 回调方法，点击每个 Banner 调用  )
  */
-- (__kindof SwpBanner * _Nonnull (^)(SwpBannerClickBlock))swpBannerClick {
+- (__kindof SwpBanner * _Nonnull (^)(SwpBannerSelected _Nullable bannerSelected))swp_bannerSelected {
     
-    return ^(SwpBannerClickBlock swpBannerClickBlock) {
-        [self swpBannerClickBlock:swpBannerClickBlock];
+    return ^(SwpBannerSelected bannerSelected) {
+        self.bannerSelected = bannerSelected;
         return self;
     };
 }
@@ -599,7 +576,7 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
  *  @return UIImage
  */
 - (UIImage *)swpBannerGetDefaultNetworkLoadPlaceholderImage {
-    return [SwpBannerTools swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
+    return [SwpBannerUtils swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
 }
 
 /**
@@ -640,8 +617,8 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     
     return !_swpBannerPageControlView ? _swpBannerPageControlView = ({
         UIPageControl *pageControl = [[UIPageControl alloc] init];
-        pageControl.pageIndicatorTintColor        = [UIColor blackColor];
-        pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+        pageControl.pageIndicatorTintColor        = UIColor.blackColor;
+        pageControl.currentPageIndicatorTintColor = UIColor.redColor;
         pageControl.enabled                       = YES;
         pageControl;
     }) : _swpBannerPageControlView;

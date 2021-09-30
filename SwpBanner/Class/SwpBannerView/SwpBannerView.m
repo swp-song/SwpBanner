@@ -30,12 +30,20 @@ static CGFloat const kItemTBPadding        = 0; //  cell Item 上下的边距
 /* ---------------------- Data Property ---------------------- */
 /* Delegate */
 @property (nonatomic, weak) id<SwpBannerViewDelegate>swpBannerViewDelegate_;
-@property (nonatomic, getter = isLoadNetworkImage_) BOOL loadNetworkImage_;
+@property (nonatomic, getter=isLoadNetworkImage) BOOL loadNetworkImage;
 /* ---------------------- Data Property ---------------------- */
 
 @end
 
 @implementation SwpBannerView
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    
+    if (self = [super initWithCoder:coder]) {
+        [self config];
+    }
+    return self;
+}
 
 
 /**
@@ -52,15 +60,19 @@ static CGFloat const kItemTBPadding        = 0; //  cell Item 上下的边距
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     
     if (self = [super initWithFrame:frame collectionViewLayout:self.flowLayout]) {
-        [self registerClass:SwpBannerCell.class forCellWithReuseIdentifier:NSStringFromClass(SwpBannerCell.class)];
-        self.backgroundColor                = [UIColor whiteColor];
-        self.dataSource                     = self;
-        self.delegate                       = self;
-        self.pagingEnabled                  = YES;
-        self.showsHorizontalScrollIndicator = NO;
-        self.showsVerticalScrollIndicator   = NO;
+        [self config];
     }
     return self;
+}
+
+- (void)config {
+    [self registerClass:SwpBannerCell.class forCellWithReuseIdentifier:NSStringFromClass(SwpBannerCell.class)];
+    self.backgroundColor                = [UIColor whiteColor];
+    self.dataSource                     = self;
+    self.delegate                       = self;
+    self.pagingEnabled                  = YES;
+    self.showsHorizontalScrollIndicator = NO;
+    self.showsVerticalScrollIndicator   = NO;
 }
 
 #pragma mark - UICollectionView DataSoure Methods
@@ -118,7 +130,7 @@ static CGFloat const kItemTBPadding        = 0; //  cell Item 上下的边距
         
         return SwpBannerCell
         .swpBannerCellInit(collectionView, NSStringFromClass(SwpBannerCell.class), indexPath)
-        .loadNetworkImage(self.loadNetworkImage_)
+        .loadNetworkImage(self.loadNetworkImage)
         .placeholderImage(placeholderImage)
         .image(image);
     }
@@ -249,7 +261,7 @@ static CGFloat const kItemTBPadding        = 0; //  cell Item 上下的边距
 - (SwpBannerView * _Nonnull (^)(BOOL))loadNetworkImage {
     
     return ^(BOOL loadNetworkImage) {
-        self.loadNetworkImage_ = loadNetworkImage;
+        self.loadNetworkImage = loadNetworkImage;
         return self;
     };
 }

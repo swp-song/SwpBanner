@@ -30,14 +30,14 @@
 #pragma mark - UI   Propertys
 /*! ---------------------- UI   Property  ---------------------- !*/
 
-@property (nonatomic, weak  ) IBOutlet UIButton *localImageButton;
-@property (nonatomic, weak  ) IBOutlet UIButton *networkImageButton;
-@property (nonatomic, strong) SwpBanner         *swpBanner;
+@property (nonatomic, weak) IBOutlet UIButton *localImageButton;
+@property (nonatomic, weak) IBOutlet UIButton *networkImageButton;
+@property (nonatomic, strong) SwpBanner *swpBanner;
 /*! ---------------------- UI   Property  ---------------------- !*/
 
 #pragma mark - Data Propertys
 /*! ---------------------- Data Property  ---------------------- !*/
-@property (nonatomic, copy  ) NSArray   *dataSource;
+@property (nonatomic, copy) NSArray   *dataSource;
 /*! ---------------------- Data Property  ---------------------- !*/
 
 @end
@@ -55,10 +55,10 @@
     // Do any additional setup after loading the view.
     
     
-    NSLog(@"SwpBannerInfo       = %@", self.swpBanner.swpBannerInfo);
-    NSLog(@"SwpBannerVersion    = %@", self.swpBanner.swpBannerVersion);
+    NSLog(@"SwpBannerInfo       = %@", self.swpBanner.info);
+    NSLog(@"SwpBannerVersion    = %@", self.swpBanner.version);
     
-    self.swpBanner.delegate(self).dataSource(self);
+    self.swpBanner.swp_dataSource(self).swp_delegate(self);
     
     [self setUI];
     
@@ -142,7 +142,7 @@
  */
 - (void)setData {
     
-    self.swpBanner.reloadDataChain();
+    self.swpBanner.swp_reloadData();
 }
 
 #pragma mark - Set UI Methods
@@ -267,12 +267,14 @@
  */
 - (void)swpBannerClickBlock:(SwpBanner *)swpBanner {
     
-//    [swpBanner swpBannerClickBlock:^(SwpBanner * _Nonnull SwpBanner, NSIndexPath * _Nonnull indexPath) {
+    
+//    [swpBanner swpBannerSelected:^(SwpBanner * _Nonnull banner, NSIndexPath * _Nonnull indexPath) {
 //        // 注意 Block 循环引用
 //        NSLog(@" Block  %ld", indexPath.item);
 //    }];
+//
     
-    swpBanner.swpBannerClick(^(SwpBanner *swpBanner, NSIndexPath *indexPath){
+    swpBanner.swp_bannerSelected(^(SwpBanner *swpBanner, NSIndexPath *indexPath){
         // 注意 Block 循环引用
         NSLog(@" Block  %ld", indexPath.item);
     });
@@ -295,7 +297,7 @@
     UIImage *image2 = [UIImage imageNamed:@"image2"];
     NSArray *array  = @[image1, image2, @"image3", @"image4"];
     self.dataSource = [NSArray arrayWithArray:array];
-    self.swpBanner.reloadDataChain();
+    self.swpBanner.swp_reloadData();
 }
 
 /**
@@ -316,7 +318,7 @@
                        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image8.png",
                        ];
     self.dataSource = [NSArray arrayWithArray:array];
-    self.swpBanner.reloadDataChain();
+    self.swpBanner.swp_reloadData();
 }
 
 #pragma mark - Init UI Methods

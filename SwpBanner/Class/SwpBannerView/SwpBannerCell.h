@@ -1,6 +1,6 @@
 //
 //  SwpBannerCell.h
-//  swp_song
+//  Dream
 //
 //  Created by swp_song on 15/8/10.
 //  Copyright (c) 2015年 swp_song. All rights reserved.
