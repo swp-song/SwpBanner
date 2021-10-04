@@ -1,21 +1,12 @@
-project 'SwpBannerDemo.xcodeproj'
-
 # Uncomment the next line to define a global platform for your project
-
-#  source 'https://github.com/CocoaPods/Specs.git'
-  platform :ios, '13.0'
-
+platform :ios, '14.0'
 
 target 'SwpBannerDemo' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
 
   # Pods for SwpBannerDemo
-  inhibit_all_warnings!
-
   pod 'SwpBanner', :path => '../'
   pod 'Masonry'
-  pod 'SDWebImage'
-  
-  
+
 end

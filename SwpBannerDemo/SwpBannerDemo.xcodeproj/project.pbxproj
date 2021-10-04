@@ -3,102 +3,157 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D2B55481E1B9E8500D0871B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B55471E1B9E8500D0871B /* main.m */; };
-		2D2B554B1E1B9E8500D0871B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B554A1E1B9E8500D0871B /* AppDelegate.m */; };
-		2D2B554E1E1B9E8500D0871B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B554D1E1B9E8500D0871B /* ViewController.m */; };
-		2D2B55511E1B9E8500D0871B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D2B554F1E1B9E8500D0871B /* Main.storyboard */; };
-		2D2B55531E1B9E8500D0871B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D2B55521E1B9E8500D0871B /* Assets.xcassets */; };
-		2D2B55561E1B9E8500D0871B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D2B55541E1B9E8500D0871B /* LaunchScreen.storyboard */; };
-		C2EC7474468E78D9D188E727 /* libPods-SwpBannerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 668CC16C260D52B3E8FADD55 /* libPods-SwpBannerDemo.a */; };
+		F19919C8270B3A8400D8DB57 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19919C7270B3A8400D8DB57 /* MainController.m */; };
+		F19919CF270B3AFC00D8DB57 /* SwpBanner2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F19919CE270B3AFC00D8DB57 /* SwpBanner2Controller.m */; };
+		F19919D2270B3B0C00D8DB57 /* SwpBanner1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F19919D1270B3B0C00D8DB57 /* SwpBanner1Controller.m */; };
+		F1AAF020270AC9B500CE7F47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AAF010270AC9B500CE7F47 /* LaunchScreen.storyboard */; };
+		F1AAF021270AC9B500CE7F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AAF012270AC9B500CE7F47 /* Main.storyboard */; };
+		F1AAF022270AC9B500CE7F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1AAF015270AC9B500CE7F47 /* Assets.xcassets */; };
+		F1AAF024270AC9B500CE7F47 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AAF019270AC9B500CE7F47 /* SceneDelegate.m */; };
+		F1AAF025270AC9B500CE7F47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AAF01A270AC9B500CE7F47 /* main.m */; };
+		F1AAF026270AC9B500CE7F47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AAF01B270AC9B500CE7F47 /* AppDelegate.m */; };
+		F9FB24788F8FB49B1B966285 /* Pods_SwpBannerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9284E2B6356CEE33F264BA04 /* Pods_SwpBannerDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D2B55431E1B9E8500D0871B /* SwpBannerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwpBannerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D2B55471E1B9E8500D0871B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D2B55491E1B9E8500D0871B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2D2B554A1E1B9E8500D0871B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2D2B554C1E1B9E8500D0871B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2D2B554D1E1B9E8500D0871B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2D2B55501E1B9E8500D0871B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2D2B55521E1B9E8500D0871B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2D2B55551E1B9E8500D0871B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2D2B55571E1B9E8500D0871B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		668CC16C260D52B3E8FADD55 /* libPods-SwpBannerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwpBannerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC5F75FA9CF0E87D4A73A731 /* Pods-SwpBannerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpBannerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		F436C0D3F223E82F28928FF2 /* Pods-SwpBannerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpBannerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		058CDBD2C86E1821AB3F6561 /* Pods-SwpBannerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpBannerDemo.release.xcconfig"; path = "Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		0C2B419E051D624462CB6BBE /* Pods-SwpBannerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpBannerDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9284E2B6356CEE33F264BA04 /* Pods_SwpBannerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwpBannerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19919C6270B3A8400D8DB57 /* MainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
+		F19919C7270B3A8400D8DB57 /* MainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		F19919CD270B3AFC00D8DB57 /* SwpBanner2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwpBanner2Controller.h; sourceTree = "<group>"; };
+		F19919CE270B3AFC00D8DB57 /* SwpBanner2Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwpBanner2Controller.m; sourceTree = "<group>"; };
+		F19919D0270B3B0C00D8DB57 /* SwpBanner1Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwpBanner1Controller.h; sourceTree = "<group>"; };
+		F19919D1270B3B0C00D8DB57 /* SwpBanner1Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwpBanner1Controller.m; sourceTree = "<group>"; };
+		F1AAEFF2270AC8D800CE7F47 /* SwpBannerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwpBannerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1AAF011270AC9B500CE7F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F1AAF013270AC9B500CE7F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1AAF015270AC9B500CE7F47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1AAF016270AC9B500CE7F47 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1AAF018270AC9B500CE7F47 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F1AAF019270AC9B500CE7F47 /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		F1AAF01A270AC9B500CE7F47 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F1AAF01B270AC9B500CE7F47 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F1AAF01C270AC9B500CE7F47 /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2D2B55401E1B9E8500D0871B /* Frameworks */ = {
+		F1AAEFEF270AC8D800CE7F47 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2EC7474468E78D9D188E727 /* libPods-SwpBannerDemo.a in Frameworks */,
+				F9FB24788F8FB49B1B966285 /* Pods_SwpBannerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D2B553A1E1B9E8500D0871B = {
+		2B1C6C6472EB80308ABA54DA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2D2B55451E1B9E8500D0871B /* SwpBannerDemo */,
-				2D2B55441E1B9E8500D0871B /* Products */,
-				5CFB980A66AF97AFB696A4BD /* Pods */,
-				92F7F4B748823B02FB194EAF /* Frameworks */,
+				0C2B419E051D624462CB6BBE /* Pods-SwpBannerDemo.debug.xcconfig */,
+				058CDBD2C86E1821AB3F6561 /* Pods-SwpBannerDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F19919C9270B3A8C00D8DB57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F19919C6270B3A8400D8DB57 /* MainController.h */,
+				F19919C7270B3A8400D8DB57 /* MainController.m */,
+				F19919D0270B3B0C00D8DB57 /* SwpBanner1Controller.h */,
+				F19919D1270B3B0C00D8DB57 /* SwpBanner1Controller.m */,
+				F19919CD270B3AFC00D8DB57 /* SwpBanner2Controller.h */,
+				F19919CE270B3AFC00D8DB57 /* SwpBanner2Controller.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F1AAEFE9270AC8D800CE7F47 = {
+			isa = PBXGroup;
+			children = (
+				F1AAEFF4270AC8D800CE7F47 /* SwpBannerDemo */,
+				F1AAEFF3270AC8D800CE7F47 /* Products */,
+				2B1C6C6472EB80308ABA54DA /* Pods */,
+				F95833CF3F1DBC9FF9EBC5D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		2D2B55441E1B9E8500D0871B /* Products */ = {
+		F1AAEFF3270AC8D800CE7F47 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2D2B55431E1B9E8500D0871B /* SwpBannerDemo.app */,
+				F1AAEFF2270AC8D800CE7F47 /* SwpBannerDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2D2B55451E1B9E8500D0871B /* SwpBannerDemo */ = {
+		F1AAEFF4270AC8D800CE7F47 /* SwpBannerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2D2B55491E1B9E8500D0871B /* AppDelegate.h */,
-				2D2B554A1E1B9E8500D0871B /* AppDelegate.m */,
-				2D2B554C1E1B9E8500D0871B /* ViewController.h */,
-				2D2B554D1E1B9E8500D0871B /* ViewController.m */,
-				2D2B554F1E1B9E8500D0871B /* Main.storyboard */,
-				2D2B55521E1B9E8500D0871B /* Assets.xcassets */,
-				2D2B55541E1B9E8500D0871B /* LaunchScreen.storyboard */,
-				2D2B55571E1B9E8500D0871B /* Info.plist */,
-				2D2B55461E1B9E8500D0871B /* Supporting Files */,
+				F1AAF00E270AC9B500CE7F47 /* Application */,
+				F1AAF01D270AC9B500CE7F47 /* Code */,
 			);
 			path = SwpBannerDemo;
 			sourceTree = "<group>";
 		};
-		2D2B55461E1B9E8500D0871B /* Supporting Files */ = {
+		F1AAF00E270AC9B500CE7F47 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				2D2B55471E1B9E8500D0871B /* main.m */,
+				F1AAF00F270AC9B500CE7F47 /* Storyboard */,
+				F1AAF014270AC9B500CE7F47 /* Resource */,
+				F1AAF017270AC9B500CE7F47 /* Main */,
 			);
-			name = "Supporting Files";
+			path = Application;
 			sourceTree = "<group>";
 		};
-		5CFB980A66AF97AFB696A4BD /* Pods */ = {
+		F1AAF00F270AC9B500CE7F47 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				F436C0D3F223E82F28928FF2 /* Pods-SwpBannerDemo.debug.xcconfig */,
-				DC5F75FA9CF0E87D4A73A731 /* Pods-SwpBannerDemo.release.xcconfig */,
+				F1AAF012270AC9B500CE7F47 /* Main.storyboard */,
+				F1AAF010270AC9B500CE7F47 /* LaunchScreen.storyboard */,
 			);
-			name = Pods;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		92F7F4B748823B02FB194EAF /* Frameworks */ = {
+		F1AAF014270AC9B500CE7F47 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				668CC16C260D52B3E8FADD55 /* libPods-SwpBannerDemo.a */,
+				F1AAF016270AC9B500CE7F47 /* Info.plist */,
+				F1AAF015270AC9B500CE7F47 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F1AAF017270AC9B500CE7F47 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F1AAF01A270AC9B500CE7F47 /* main.m */,
+				F1AAF018270AC9B500CE7F47 /* AppDelegate.h */,
+				F1AAF01B270AC9B500CE7F47 /* AppDelegate.m */,
+				F1AAF01C270AC9B500CE7F47 /* SceneDelegate.h */,
+				F1AAF019270AC9B500CE7F47 /* SceneDelegate.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F1AAF01D270AC9B500CE7F47 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				F19919C9270B3A8C00D8DB57 /* Controller */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		F95833CF3F1DBC9FF9EBC5D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9284E2B6356CEE33F264BA04 /* Pods_SwpBannerDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -106,15 +161,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2D2B55421E1B9E8500D0871B /* SwpBannerDemo */ = {
+		F1AAEFF1270AC8D800CE7F47 /* SwpBannerDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D2B555A1E1B9E8500D0871B /* Build configuration list for PBXNativeTarget "SwpBannerDemo" */;
+			buildConfigurationList = F1AAF00B270AC8DA00CE7F47 /* Build configuration list for PBXNativeTarget "SwpBannerDemo" */;
 			buildPhases = (
-				F1058D9B5268C43E4F8FE093 /* [CP] Check Pods Manifest.lock */,
-				2D2B553F1E1B9E8500D0871B /* Sources */,
-				2D2B55401E1B9E8500D0871B /* Frameworks */,
-				2D2B55411E1B9E8500D0871B /* Resources */,
-				EE6A9752284669CC83C065CD /* [CP] Copy Pods Resources */,
+				67B3FF531BD0581B000D7BC1 /* [CP] Check Pods Manifest.lock */,
+				F1AAEFEE270AC8D800CE7F47 /* Sources */,
+				F1AAEFEF270AC8D800CE7F47 /* Frameworks */,
+				F1AAEFF0270AC8D800CE7F47 /* Resources */,
+				AC306C632988DD2B5D3A9937 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,84 +177,69 @@
 			);
 			name = SwpBannerDemo;
 			productName = SwpBannerDemo;
-			productReference = 2D2B55431E1B9E8500D0871B /* SwpBannerDemo.app */;
+			productReference = F1AAEFF2270AC8D800CE7F47 /* SwpBannerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2D2B553B1E1B9E8500D0871B /* Project object */ = {
+		F1AAEFEA270AC8D800CE7F47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1300;
-				ORGANIZATIONNAME = swp_song;
 				TargetAttributes = {
-					2D2B55421E1B9E8500D0871B = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+					F1AAEFF1270AC8D800CE7F47 = {
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
-			buildConfigurationList = 2D2B553E1E1B9E8500D0871B /* Build configuration list for PBXProject "SwpBannerDemo" */;
-			compatibilityVersion = "Xcode 3.2";
+			buildConfigurationList = F1AAEFED270AC8D800CE7F47 /* Build configuration list for PBXProject "SwpBannerDemo" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2D2B553A1E1B9E8500D0871B;
-			productRefGroup = 2D2B55441E1B9E8500D0871B /* Products */;
+			mainGroup = F1AAEFE9270AC8D800CE7F47;
+			productRefGroup = F1AAEFF3270AC8D800CE7F47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2D2B55421E1B9E8500D0871B /* SwpBannerDemo */,
+				F1AAEFF1270AC8D800CE7F47 /* SwpBannerDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2D2B55411E1B9E8500D0871B /* Resources */ = {
+		F1AAEFF0270AC8D800CE7F47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D2B55561E1B9E8500D0871B /* LaunchScreen.storyboard in Resources */,
-				2D2B55531E1B9E8500D0871B /* Assets.xcassets in Resources */,
-				2D2B55511E1B9E8500D0871B /* Main.storyboard in Resources */,
+				F1AAF020270AC9B500CE7F47 /* LaunchScreen.storyboard in Resources */,
+				F1AAF022270AC9B500CE7F47 /* Assets.xcassets in Resources */,
+				F1AAF021270AC9B500CE7F47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EE6A9752284669CC83C065CD /* [CP] Copy Pods Resources */ = {
+		67B3FF531BD0581B000D7BC1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-resources.sh",
-				"${PODS_ROOT}/../../SwpBanner/Resources/SwpBanner.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SwpBanner.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F1058D9B5268C43E4F8FE093 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-SwpBannerDemo-checkManifestLockResult.txt",
 			);
@@ -208,51 +248,72 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AC306C632988DD2B5D3A9937 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2D2B553F1E1B9E8500D0871B /* Sources */ = {
+		F1AAEFEE270AC8D800CE7F47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D2B554E1E1B9E8500D0871B /* ViewController.m in Sources */,
-				2D2B554B1E1B9E8500D0871B /* AppDelegate.m in Sources */,
-				2D2B55481E1B9E8500D0871B /* main.m in Sources */,
+				F19919C8270B3A8400D8DB57 /* MainController.m in Sources */,
+				F1AAF025270AC9B500CE7F47 /* main.m in Sources */,
+				F19919CF270B3AFC00D8DB57 /* SwpBanner2Controller.m in Sources */,
+				F1AAF024270AC9B500CE7F47 /* SceneDelegate.m in Sources */,
+				F19919D2270B3B0C00D8DB57 /* SwpBanner1Controller.m in Sources */,
+				F1AAF026270AC9B500CE7F47 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2D2B554F1E1B9E8500D0871B /* Main.storyboard */ = {
+		F1AAF010270AC9B500CE7F47 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2D2B55501E1B9E8500D0871B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2D2B55541E1B9E8500D0871B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2D2B55551E1B9E8500D0871B /* Base */,
+				F1AAF011270AC9B500CE7F47 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F1AAF012270AC9B500CE7F47 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1AAF013270AC9B500CE7F47 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2D2B55581E1B9E8500D0871B /* Debug */ = {
+		F1AAF009270AC8DA00CE7F47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -272,14 +333,14 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -293,23 +354,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		2D2B55591E1B9E8500D0871B /* Release */ = {
+		F1AAF00A270AC8DA00CE7F47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -329,14 +392,14 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -344,37 +407,68 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		2D2B555B1E1B9E8500D0871B /* Debug */ = {
+		F1AAF00C270AC8DA00CE7F47 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F436C0D3F223E82F28928FF2 /* Pods-SwpBannerDemo.debug.xcconfig */;
+			baseConfigurationReference = 0C2B419E051D624462CB6BBE /* Pods-SwpBannerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SwpBannerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "swp-song.SwpBannerDemo";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3.0.0;
+				DEVELOPMENT_TEAM = 3U34V92LTL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwpBannerDemo/Application/Resource/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dream-wp.SwpBannerDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		2D2B555C1E1B9E8500D0871B /* Release */ = {
+		F1AAF00D270AC8DA00CE7F47 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC5F75FA9CF0E87D4A73A731 /* Pods-SwpBannerDemo.release.xcconfig */;
+			baseConfigurationReference = 058CDBD2C86E1821AB3F6561 /* Pods-SwpBannerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SwpBannerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "swp-song.SwpBannerDemo";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3.0.0;
+				DEVELOPMENT_TEAM = 3U34V92LTL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwpBannerDemo/Application/Resource/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dream-wp.SwpBannerDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -382,25 +476,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D2B553E1E1B9E8500D0871B /* Build configuration list for PBXProject "SwpBannerDemo" */ = {
+		F1AAEFED270AC8D800CE7F47 /* Build configuration list for PBXProject "SwpBannerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2D2B55581E1B9E8500D0871B /* Debug */,
-				2D2B55591E1B9E8500D0871B /* Release */,
+				F1AAF009270AC8DA00CE7F47 /* Debug */,
+				F1AAF00A270AC8DA00CE7F47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D2B555A1E1B9E8500D0871B /* Build configuration list for PBXNativeTarget "SwpBannerDemo" */ = {
+		F1AAF00B270AC8DA00CE7F47 /* Build configuration list for PBXNativeTarget "SwpBannerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2D2B555B1E1B9E8500D0871B /* Debug */,
-				2D2B555C1E1B9E8500D0871B /* Release */,
+				F1AAF00C270AC8DA00CE7F47 /* Debug */,
+				F1AAF00D270AC8DA00CE7F47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2D2B553B1E1B9E8500D0871B /* Project object */;
+	rootObject = F1AAEFEA270AC8D800CE7F47 /* Project object */;
 }

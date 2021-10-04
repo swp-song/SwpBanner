@@ -2,20 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Version</key>
-	<string>2.2.2</string>
 	<key>Author</key>
-	<string>swp-song</string>
+	<string>Dream</string>
+	<key>Blog</key>
+	<string>https://dream-swp.com</string>
+	<key>Documents</key>
+	<string>https://dream-swp.com/docs/SwpBanner</string>
 	<key>GitHub</key>
 	<string>https://github.com/swp-song</string>
-	<key>Documents</key>
-	<string>https://swp-song.com/docs/SwpBanner</string>
 	<key>SwpBanner</key>
 	<string>https://github.com/swp-song/SwpBanner</string>
-	<key>Blogs</key>
-	<array>
-		<string>https://swp-song.cn</string>
-		<string>https://swp-song.com</string>
-	</array>
+	<key>Version</key>
+	<string>3.0.0</string>
 </dict>
 </plist>

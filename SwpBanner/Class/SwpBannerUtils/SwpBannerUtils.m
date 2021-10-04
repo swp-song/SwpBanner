@@ -1,10 +1,9 @@
-
 //
 //  SwpBannerUtils.m
-//  SwpBannerDemo
+//  Dream
 //
 //  Created by swp_song on 2017/1/4.
-//  Copyright © 2017年 swp_song. All rights reserved.
+//  Copyright © 2017年 Dream. All rights reserved.
 //
 
 #import "SwpBannerUtils.h"
@@ -13,23 +12,19 @@
 
 @implementation SwpBannerUtils
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerToolsGetDefaultNetworkLoadPlaceholderImage ( 获取默认 Placeholder Image )
- *
- *  @return UIImage
- */
-+ (UIImage *)swpBannerToolsGetDefaultNetworkLoadPlaceholderImage {
-    return [UIImage imageNamed:@"SwpBanner.bundle/SwpBannerPlaceholderImage"];
-}
-
-+ (NSDictionary *)Info {
+// MARK: - Public: Property
++ (NSDictionary *)swpBannerinfo {
     return [NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"SwpBanner.bundle/SwpBanner.plist" ofType:nil]].copy;
 }
 
-+ (NSString *)Version {
-    return self.Info[@"Version"];
++ (NSString *)swpBannerVersion {
+    return self.swpBannerinfo[@"Version"];
 }
+
++ (UIImage *)swpBannerPlaceholderImage {
+    return [UIImage imageNamed:@"SwpBanner.bundle/SwpBannerPlaceholderImage"];;
+}
+
+// MARK: -
 
 @end

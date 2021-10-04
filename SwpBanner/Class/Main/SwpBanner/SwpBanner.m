@@ -1,47 +1,26 @@
 //
 //  SwpBanner.m
-//  swp_song
+//  Dream
 //
-//  Created by swp_song on 15/8/10.
-//  Copyright (c) 2015年 swp_song. All rights reserved.
+//  Created by Dream on 15/8/10.
+//  Copyright (c) 2015年 Dream. All rights reserved.
 //
 
 #import "SwpBanner.h"
 
-/* ---------------------- Tool       ---------------------- */
-#import "SwpBannerUtils.h"              //  工具
-/* ---------------------- Tool       ---------------------- */
-
-/* ---------------------- Model      ---------------------- */
-/* ---------------------- Model      ---------------------- */
-
-/* ---------------------- View       ---------------------- */
+#import "SwpBannerUtils.h"
 #import "SwpBannerView.h"
-#import "SwpBannerCell.h"           //  默认轮播显示的 Cell
-/* ---------------------- View       ---------------------- */
+#import "SwpBannerCell.h"
 
 CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 
 @interface SwpBanner () <SwpBannerViewDelegate>
 
-#pragma mark - UI   Propertys
-/* ---------------------- UI   Property ---------------------- */
-/* 显示图片的 view */
 @property (nonatomic, strong) SwpBannerView *swpBannerView;
-/* 显示图片分页的view */
 @property (nonatomic, strong) UIPageControl *swpBannerPageControlView;
-/* ---------------------- UI   Property ---------------------- */
-
-#pragma mark - Data Propertys
-/* ---------------------- Data Property ---------------------- */
-
-/* section */
 @property (nonatomic, assign) NSInteger section;
 
-/* ---------------------- Data Property ---------------------- */
-
 @end
-
 
 @implementation SwpBanner
 
@@ -53,15 +32,6 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     return self;
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  initWithFrame:  ( Override Init )
- *
- *  @param  frame   frame
- *
- *  @return UIView
- */
 - (instancetype)initWithFrame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
@@ -70,35 +40,29 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     return self;
 }
 
+- (void)dealloc {
+ 
+    [self _stopScroll];
+    [self.swpBannerPageControlView removeTarget:self action:@selector(selected:) forControlEvents:(UIControlEventValueChanged)];
+}
+
 - (void)config {
-    self.swpBannerView.swpBannerViewDelegate(self).loadNetworkImage(YES);
-    
     [self setupUI];
     
     [self setInitData];
+    
+    [self.swpBannerPageControlView addTarget:self action:@selector(selected:) forControlEvents:(UIControlEventValueChanged)];
 }
 
-/**
- *  @ author swp_song
- *
- *  @ brief  layoutSubviews (Override layoutSubviews)
- */
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.swpBannerView.frame             = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    self.swpBannerView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     self.swpBannerPageControlView.frame  = CGRectMake(0, self.frame.size.height - kSwpBannerPageControlViewHeight, self.frame.size.width, kSwpBannerPageControlViewHeight);
 }
 
-
-#pragma mark - Set Init Data Method
-/**
- *  @ author swp_song
- *
- *  @ brief  setInitData    ( 设置初始化数据 )
- */
 - (void)setInitData {
     
-    self.bounces(YES).swp_customCell(NO).pageControlHidden(NO);
+    self.swp_bounces(YES).swp_customCell(NO).swp_pageControlHidden(NO);
 
     // 设置 pageControlView 总页数
     self.swpBannerPageControlView.numberOfPages = [self.dataSource swpBanner:self numberOfItemsInSection:self.section];
@@ -107,25 +71,12 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     self.swpBannerPageControlView.currentPage   = 0;
 }
 
-
-#pragma mark - Set UI Methods
 - (void)setupUI {
     [self addSubview:self.swpBannerView];
     [self addSubview:self.swpBannerPageControlView];
 }
 
-#pragma mark - SwpBannerView delegate_ Methods
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:numberOfSectionsInCollectionView: ( SwpBannerView 代理方法，设置分组个数 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  collectionView  collectionView
- *
- *  @return NSInteger
- */
+// MARK: - SwpBannerView DataSource
 - (NSInteger)swpBannerView:(SwpBannerView *)swpBannerView numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
     if ([self.dataSource respondsToSelector:@selector(swpBannerNmberOfSections:)]) {
@@ -134,37 +85,13 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     return 1;
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:collectionView:numberOfItemsInSection:    ( SwpBannerView 代理方法，设置每组 cell 返回个数 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  collectionView  collectionView
- *
- *  @param  section         section
- *
- *  @return NSInteger
- */
+
 - (NSInteger)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     self.section = section;
     return [self.dataSource swpBanner:self numberOfItemsInSection:section];
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:collectionView:cellForItemAtIndexPath:    ( SwpBannerView 代理方法，设置 cell 返回样式 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  collectionView  collectionView
- *
- *  @param  indexPath       indexPath
- *
- *  @return UICollectionViewCell
- */
+
 - (UICollectionViewCell *)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (!self.isCustomCell) {
@@ -174,32 +101,11 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     }
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:cellImageForItemAtIndexPath:  ( SwpBannerView 代理方法，设置显图片 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  indexPath       indexPath
- *
- *  @return id
- */
 - (id)swpBannerView:(SwpBannerView *)swpBannerView cellImageForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [self.dataSource swpBanner:self cellImageForItemAtIndexPath:indexPath];
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:loadPlaceholderImageForItemAtIndexPath:   ( SwpBannerView 代理方法，设置站位图片 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  indexPath       indexPath
- *
- *  @return id
- */
+
 - (id)swpBannerView:(SwpBannerView *)swpBannerView loadPlaceholderImageForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if ([self.delegate respondsToSelector:@selector(swpBanner:loadNetworkPlaceholderImageAtIndexPath:)]) {
@@ -208,85 +114,55 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
         
         if (image != nil) return image;
         
-        return [SwpBannerUtils swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
+        return self.placeholderImage;
     }
     
-    return [SwpBannerUtils swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
+    return self.placeholderImage;
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:collectionView:didSelectItemAtIndexPath:  ( SwpBannerView 代理方法，cell 点击调用 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  collectionView  collectionView
- *
- *  @param  indexPath       indexPath
- */
+- (CGSize)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)layout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([self.delegate respondsToSelector:@selector(swpBanner:collectionView:layout:sizeForItemAtIndexPath:)]) {
+        return [self.delegate swpBanner:self collectionView:swpBannerView layout:layout sizeForItemAtIndexPath:indexPath];
+    }
+    return swpBannerView.size;
+}
+
+- (UIEdgeInsets)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)layout insetForSectionAtIndex:(NSInteger)section {
+
+    if ([self.delegate respondsToSelector:@selector(swpBanner:collectionView:layout:insetForSectionAtIndex:)]) {
+        return [self.delegate swpBanner:self collectionView:swpBannerView layout:layout insetForSectionAtIndex:section];
+    }
+    return swpBannerView.padding;
+}
+
+// MARK: - SwpBannerView Delegate
 - (void)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    
     if (self.bannerSelected) self.bannerSelected(self, indexPath);
-    
     if ([self.delegate respondsToSelector:@selector(swpBanner:didSelectItemAtIndexPath:)]) {
         [self.delegate swpBanner:self didSelectItemAtIndexPath:indexPath];
     }
 }
 
-#pragma mark - UIScrollView Methods
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:scrollViewWillBeginDecelerating:  ( SwpBannerView 代理方法，scrollView 开始拖拽的时候调用 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  scrollView      scrollView
- */
+// MARK:  UIScrollView Methods
 - (void)swpBannerView:(SwpBannerView *)swpBannerView scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     //  开始滚动
     [self _beginScroll];
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:scrollViewDidEndDragging:willDecelerate:  ( SwpBannerView 代理方法，完全停止拖拽的时候调用 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  scrollView      scrollView
- *
- *  @param  decelerate      decelerate
- */
+
 - (void)swpBannerView:(SwpBannerView *)swpBannerView scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     //  停止滚动
     [self _stopScroll];
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerView:scrollViewDidScroll:page: ( SwpBannerView 代理方法，正在滚动时调用 )
- *
- *  @param  swpBannerView   swpBannerView
- *
- *  @param  scrollView      scrollView
- *
- *  @param  page            page
- */
+
 - (void)swpBannerView:(SwpBannerView *)swpBannerView scrollViewDidScroll:(UIScrollView *)scrollView page:(NSInteger)page {
     self.swpBannerPageControlView.currentPage = page;
 }
 
-#pragma mark - Tools Methods
-/**
- *  @author swp_song
- *
- *  @brief  _scrollAndPageControl   ( 设置图片滚动，分页属性 )
- */
+// MARK: - Tools Method
 - (void)_scrollAndPageControl {
     
     
@@ -305,30 +181,16 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     [self _beginScroll];
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  _beginScroll    ( 开始滚动 )
- */
+
 - (void)_beginScroll {
     self.timer = self.timer == 0 ? 5.0 : self.timer;
     [self performSelector:@selector(_nextImage) withObject:nil afterDelay:self.timer];
 }
 
-/**
- *  @author swp_song
- *
- *  @brief _stopScroll  ( 停止滚动 )
- */
 - (void)_stopScroll {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_nextImage) object:nil];
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  _nextImage  ( 自动滚动 )
- */
 - (void)_nextImage {
     
     [self _stopScroll];
@@ -338,14 +200,6 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     [self _beginScroll];
 }
 
-
-/**
- *  @author swp_song
- *
- *  @brief  _imageCollectionViewScrollScrollLocation:   ( 设置图片的 cell 的滚动位置，需要图片初始化 到第一张图片 YES 是初始化到第一张图片 NO 是不需要 )
- *
- *  @param  initLocation    initLocation
- */
 - (void)_imageCollectionViewScrollScrollLocation:(BOOL)initLocation  {
     
     //  是否实现了数据源方法
@@ -368,37 +222,87 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     }
 }
 
-#pragma mark - SwpBanner Propertys Methods
+- (void)selected:(UIPageControl *)pageControl {
+    [self _stopScroll];
+    [self.swpBannerView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:pageControl.currentPage inSection:self.section] atScrollPosition:(UICollectionViewScrollPositionNone) animated:YES];
+    [self _beginScroll];
+}
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerInfo   ( 读取 SwpBanner 信息资源文件 )
- *
- *  @return NSDictionary
- */
-- (NSDictionary *)info {
-    return SwpBannerUtils.Info;
+- (SwpBannerView *)swpBannerView {
+    return !_swpBannerView ? _swpBannerView = ({
+        SwpBannerView.new.swp_loadNetwork(NO).swp_bannerViewDelegate(self);
+    }) : _swpBannerView;
+}
+
+- (UIPageControl *)swpBannerPageControlView {
+    
+    return !_swpBannerPageControlView ? _swpBannerPageControlView = ({
+        UIPageControl *pageControl = UIPageControl.new;
+        pageControl.pageIndicatorTintColor        = UIColor.blackColor;
+        pageControl.currentPageIndicatorTintColor = UIColor.redColor;
+//        pageControl.allowsContinuousInteraction = YES;
+//        pageControl.backgroundStyle             = UIPageControlInteractionStateContinuous;
+        pageControl.enabled                     = YES;
+        pageControl;
+    }) : _swpBannerPageControlView;
+}
+
+// MARK: - Public Property
+- (NSDictionary *)swpBannerinfo {
+    return SwpBannerUtils.swpBannerinfo;
 }
 
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerVersion    ( 读取 SwpBanner 版本号 )
- *
- *  @return NSString
- */
-- (NSString *)version {
-    SwpBannerUtils.Version = @"1";
-    return SwpBannerUtils.Version;
+- (NSString *)swpBannerVersion {
+    return SwpBannerUtils.swpBannerVersion;
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  dataSource: ( 设置数据源 )
- */
+
+- (void)setLoadNetwork:(BOOL)loadNetwork {
+    _loadNetwork = loadNetwork;
+    self.swpBannerView.swp_loadNetwork(_loadNetwork);
+}
+
+- (void)setTotalPageColor:(UIColor *)totalPageColor {
+    _totalPageColor = totalPageColor;
+    self.swpBannerPageControlView.pageIndicatorTintColor = _totalPageColor;
+}
+
+- (void)setPageColor:(UIColor *)pageColor {
+    _pageColor = pageColor;
+    self.swpBannerPageControlView.currentPageIndicatorTintColor = _pageColor;
+}
+
+- (void)setBounces:(BOOL)bounces {
+    _bounces = bounces;
+    self.swpBannerView.bounces = _bounces;
+}
+
+
+- (void)setPageControlHidden:(BOOL)pageControlHidden {
+    _pageControlHidden = pageControlHidden;
+    self.swpBannerPageControlView.hidden = _pageControlHidden;
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    self.backgroundColor = self.swpBannerView.backgroundColor = backgroundColor;
+}
+
+- (UIImage *)placeholderImage {
+    return SwpBannerUtils.swpBannerPlaceholderImage;
+}
+
+// MARK: - Public: Method
+- (void)reloadData {
+    [self.swpBannerView reloadData];
+    [self _scrollAndPageControl];
+}
+
+- (void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier {
+    [self.swpBannerView registerClass:cellClass forCellWithReuseIdentifier:identifier];
+}
+
+// MARK: - Public: Functional
 - (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDataSource> _Nonnull dataSource))swp_dataSource {
     return ^(id<SwpBannerDataSource>dataSource) {
         self.dataSource = dataSource;
@@ -406,11 +310,6 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     };
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  delegate    ( 设置代理 )
- */
 - (__kindof SwpBanner * _Nonnull (^)(id<SwpBannerDelegate> _Nullable delegate))swp_delegate {
     return ^(id<SwpBannerDelegate>delegate) {
         self.delegate = delegate;
@@ -418,11 +317,6 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     };
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  timer   ( 设置定时器 )
- */
 - (__kindof SwpBanner * _Nonnull (^)(CGFloat timer))swp_timer {
     return ^(CGFloat timer) {
         self.timer = timer;
@@ -430,49 +324,29 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     };
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerTimer  ( 设置是否加载网络URL )
- */
-- (__kindof SwpBanner * _Nonnull (^)(BOOL))isLoadNetworkImage {
+- (__kindof SwpBanner * _Nonnull (^)(BOOL loadNetwork))swp_loadNetwork {
+    return ^(BOOL loadNetwork) {
+        self.loadNetwork = loadNetwork;
+        return self;
+    };
+}
+
+
+- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nonnull totalPageColor))swp_totalPageColor {
+    return ^(UIColor *totalPageColor) {
+        self.totalPageColor = totalPageColor;
+        return self;
+    };
+}
+
+- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nonnull pageColor))swp_pageColor {
     
-    return ^(BOOL isLoadNetworkImage) {
-        self.swpBannerView.loadNetworkImage(isLoadNetworkImage);
+    return ^(UIColor *pageColor) {
+        self.pageColor = pageColor;
         return self;
     };
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  totalPageColor  ( 设置分页总页数颜色 )
- */
-- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nonnull))totalPageColor {
-    return ^(UIColor *color) {
-        self.swpBannerPageControlView.pageIndicatorTintColor = color;
-        return self;
-    };
-}
-
-/**
- *  @author swp_song
- *
- *  @brief  currentPageColor    ( 设置分页当前页数颜色 )
- */
-- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nonnull))currentPageColor {
-    
-    return ^(UIColor *color) {
-        self.swpBannerPageControlView.currentPageIndicatorTintColor = color;
-        return self;
-    };
-}
-
-/**
- *  @author swp_song
- *
- *  @brief  isCustomCell    ( 设置是否自定义 cell )
- */
 - (__kindof SwpBanner * _Nonnull (^)(BOOL customCell))swp_customCell {
     
     return ^(BOOL customCell) {
@@ -481,46 +355,20 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     };
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  bounces ( 是否开启弹簧效果 )
- */
-- (__kindof SwpBanner * _Nonnull (^)(BOOL))bounces {
+- (__kindof SwpBanner * _Nonnull (^)(BOOL bounces))swp_bounces {
     return ^(BOOL bounces) {
-        self.swpBannerView.bounces = bounces;
+        self.bounces = bounces;
         return self;
     };
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  pageControlHidden   (  PagesColor 是否隐藏 )
- */
-- (__kindof SwpBanner * _Nonnull (^)(BOOL))pageControlHidden {
+- (__kindof SwpBanner * _Nonnull (^)(BOOL pageControlHidden))swp_pageControlHidden {
     return ^(BOOL pageControlHidden) {
-        self.swpBannerPageControlView.hidden = pageControlHidden;
+        self.pageControlHidden = pageControlHidden;
         return self;
     };
 }
 
-
-/**
- *  @author swp_song
- *
- *  @brief  reloadData  ( 刷新数据 )
- */
-- (void)reloadData {
-    [self.swpBannerView reloadData];
-    [self _scrollAndPageControl];
-}
-
-/**
- *  @author swp_song
- *
- *  @brief  reloadDataChain ( 刷新数据 )
- */
 - (__kindof SwpBanner * _Nonnull (^)(void))swp_reloadData {
     return ^(void) {
         [self reloadData];
@@ -528,26 +376,6 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     };
 }
 
-
-/**
- *  @author swp_song
- *
- *  @brief  registerClass:forCellWithReuseIdentifier:   ( SwpBanner 注册一个 cell )
- *
- *  @param  cellClass   cellClass
- *
- *  @param  identifier  identifier
- */
-- (void)registerClass:(Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier {
-    [self.swpBannerView registerClass:cellClass forCellWithReuseIdentifier:identifier];
-}
-
-
-/**
- *  @author swp_song
- *
- *  @brief  registerClass:  ( SwpBanner 注册一个 cell )
- */
 - (__kindof SwpBanner * _Nonnull (^)(Class  _Nonnull cellClass, NSString * _Nonnull identifier))swp_registerClass {
     return ^(Class  _Nonnull cellClass, NSString * _Nonnull identifier) {
         [self registerClass:cellClass forCellWithReuseIdentifier:identifier];
@@ -555,11 +383,14 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     };
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerClick  ( SwpBanner 回调方法，点击每个 Banner 调用  )
- */
+- (__kindof SwpBanner * _Nonnull (^)(UIColor * _Nullable backgroundColor))swp_backgroundColor {
+    return ^(UIColor *backgroundColor) {
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+// MARK: - Public: Functional Callback
 - (__kindof SwpBanner * _Nonnull (^)(SwpBannerSelected _Nullable bannerSelected))swp_bannerSelected {
     
     return ^(SwpBannerSelected bannerSelected) {
@@ -568,68 +399,6 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     };
 }
 
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerGetDefaultNetworkLoadPlaceholderImage: ( 获取默认 Placeholder Image )
- *
- *  @return UIImage
- */
-- (UIImage *)swpBannerGetDefaultNetworkLoadPlaceholderImage {
-    return [SwpBannerUtils swpBannerToolsGetDefaultNetworkLoadPlaceholderImage];
-}
-
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerBackgroundColor: ( 设置背景颜色 )
- *
- *  @param  color   color
- */
-- (void)swpBannerBackgroundColor:(UIColor *)color {
-    color = color ? color : [UIColor whiteColor];
-    self.backgroundColor = self.swpBannerView.backgroundColor = color;
-}
-
-/**
- *  @author swp_song
- *
- *  @brief  swpBannerBackgroundColor    ( 设置背景颜色 )
- */
-- (__kindof SwpBanner * _Nonnull (^)(UIColor *))swpBannerBackgroundColor {
-    return ^(UIColor *color) {
-        [self swpBannerBackgroundColor:color];
-        return self;
-    };
-}
-
-
-#pragma mark - Init UI Methods
-
-- (SwpBannerView *)swpBannerView {
-    return !_swpBannerView ? _swpBannerView = ({
-        SwpBannerView *swpBannerView = [SwpBannerView new];
-        swpBannerView;
-    }) : _swpBannerView;
-}
-
-- (UIPageControl *)swpBannerPageControlView {
-    
-    return !_swpBannerPageControlView ? _swpBannerPageControlView = ({
-        UIPageControl *pageControl = [[UIPageControl alloc] init];
-        pageControl.pageIndicatorTintColor        = UIColor.blackColor;
-        pageControl.currentPageIndicatorTintColor = UIColor.redColor;
-        pageControl.enabled                       = YES;
-        pageControl;
-    }) : _swpBannerPageControlView;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+// MARK: -
 
 @end
