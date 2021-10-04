@@ -9,6 +9,8 @@
 
 @interface SwpBanner1Controller ()
 
+@property (nonatomic, copy) NSArray *datas;
+
 @end
 
 @implementation SwpBanner1Controller
@@ -17,6 +19,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+
+
+- (NSArray *)localDatas {
+    
+    return @[
+        [UIImage imageNamed:@"image1"],
+        [UIImage imageNamed:@"image2"],
+        @"image3",
+        @"image4",
+    ];
+}
+
+- (NSArray *)networkData {
+    return @[
+        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image5.png",
+        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image6.png",
+        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image7.png",
+        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image8.png",
+    ];
+}
+
 
 /*
 #pragma mark - Navigation

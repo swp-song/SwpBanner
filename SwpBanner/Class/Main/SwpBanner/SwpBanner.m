@@ -69,6 +69,7 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 
     // 设置 pageControlView 当前也数
     self.swpBannerPageControlView.currentPage   = 0;
+    
 }
 
 - (void)setupUI {
@@ -88,7 +89,8 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 
 - (NSInteger)swpBannerView:(SwpBannerView *)swpBannerView collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     self.section = section;
-    return [self.dataSource swpBanner:self numberOfItemsInSection:section];
+    self.swpBannerPageControlView.numberOfPages = [self.dataSource swpBanner:self numberOfItemsInSection:section];
+    return self.swpBannerPageControlView.numberOfPages;
 }
 
 
@@ -248,15 +250,14 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 }
 
 // MARK: - Public Property
-- (NSDictionary *)swpBannerinfo {
++ (NSDictionary *)swpBannerinfo {
     return SwpBannerUtils.swpBannerinfo;
 }
 
 
-- (NSString *)swpBannerVersion {
++ (NSString *)swpBannerVersion {
     return SwpBannerUtils.swpBannerVersion;
 }
-
 
 - (void)setLoadNetwork:(BOOL)loadNetwork {
     _loadNetwork = loadNetwork;
@@ -285,7 +286,7 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
-    self.backgroundColor = self.swpBannerView.backgroundColor = backgroundColor;
+    super.backgroundColor = self.swpBannerView.backgroundColor = backgroundColor;
 }
 
 - (UIImage *)placeholderImage {

@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SwpBannerUtils : NSObject
 
 // MARK: - Public: Property
-
+/// SwpBanner Bundle Path
+@property (nonatomic, class, copy, readonly) NSString *bundlePath;
 /// SwpBanner Info
 @property (nonatomic, class, copy, readonly) NSDictionary *swpBannerinfo;
 /// SwpBanner Version

@@ -21,9 +21,9 @@ typedef void(^SwpBannerSelected)(SwpBanner *banner, NSIndexPath *indexPath);
 
 // MARK: - Public: Property
 /// SwpBanner Info
-@property (nonatomic, copy, readonly) NSDictionary *swpBannerinfo;
+@property (nonatomic, copy, readonly, class) NSDictionary *swpBannerinfo;
 /// SwpBanner Version
-@property (nonatomic, copy, readonly) NSString *swpBannerVersion;
+@property (nonatomic, copy, readonly, class) NSString *swpBannerVersion;
 /// SwpBanner DataSource
 @property (nonatomic, weak) id<SwpBannerDataSource>dataSource;
 /// SwpBanner Delegate

@@ -7,14 +7,19 @@
 //
 
 #import "SwpBannerUtils.h"
-
-@import UIKit;
+#import "SwpBanner.h"
 
 @implementation SwpBannerUtils
 
+
++ (NSString *)bundlePath {
+    return [[NSBundle bundleForClass:SwpBanner.class] pathForResource:@"SwpBanner.bundle" ofType:nil];
+}
+
 // MARK: - Public: Property
 + (NSDictionary *)swpBannerinfo {
-    return [NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"SwpBanner.bundle/SwpBanner.plist" ofType:nil]].copy;
+    NSString *path = [NSString stringWithFormat:@"%@/%@", self.class.bundlePath, @"SwpBanner.plist"];
+    return [NSDictionary dictionaryWithContentsOfFile:path].copy;
 }
 
 + (NSString *)swpBannerVersion {
@@ -22,7 +27,8 @@
 }
 
 + (UIImage *)swpBannerPlaceholderImage {
-    return [UIImage imageNamed:@"SwpBanner.bundle/SwpBannerPlaceholderImage"];;
+    NSString *path = [NSString stringWithFormat:@"%@/%@", self.class.bundlePath, @"SwpBannerPlaceholderImage"];
+    return [UIImage imageNamed:path];
 }
 
 // MARK: -

@@ -9,6 +9,7 @@
 #import "SwpBannerCell.h"
 
 #import "UIImageView+WebCache.h"
+#import "SwpBannerUtils.h"
 
 @interface SwpBannerCell ()
 
@@ -71,7 +72,10 @@
     }
 }
 
-- (UIImage *)placeholderImage:(id)placeholderImage errorMessage:(NSString *)errorMessage {
+- (UIImage *)placeholderImage:(id)placeholderImage isNetwork:(BOOL)isNetwork errorMessage:(NSString *)errorMessage {
+    
+    if (isNetwork == NO) return nil;
+    if (placeholderImage == nil) return placeholderImage;
     
     if ([placeholderImage isKindOfClass:NSString.class]) {
         return [UIImage imageNamed:placeholderImage];
@@ -100,7 +104,10 @@
 
 - (void)setImage:(id)image {
     _image = image;
-    [self imageView:self.imageView image:_image isNetwork:self.loadNetwork placeholderImage:[self placeholderImage:self.placeholderImage errorMessage:self.dateTypeErrorMessage] errorMessage:self.dateTypeErrorMessage];
+    
+    UIImage *placeholderImage = [self placeholderImage:self.placeholderImage isNetwork:self.loadNetwork errorMessage:self.dateTypeErrorMessage];
+    placeholderImage = placeholderImage ? placeholderImage : SwpBannerUtils.swpBannerPlaceholderImage;
+    [self imageView:self.imageView image:_image isNetwork:self.loadNetwork placeholderImage:placeholderImage errorMessage:self.dateTypeErrorMessage];
 }
 
 // MARK: - Public: Method
