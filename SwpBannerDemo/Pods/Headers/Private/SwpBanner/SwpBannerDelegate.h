@@ -1,0 +1,1 @@
+../../../../../SwpBanner/Class/Main/SwpBannerDelegate/SwpBannerDelegate.h

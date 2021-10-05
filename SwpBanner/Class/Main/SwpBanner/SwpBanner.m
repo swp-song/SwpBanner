@@ -254,9 +254,16 @@ CGFloat const kSwpBannerPageControlViewHeight = 20.0;
     return SwpBannerUtils.swpBannerinfo;
 }
 
+- (NSDictionary *)swpBannerinfo {
+    return self.class.swpBannerinfo;
+}
 
 + (NSString *)swpBannerVersion {
     return SwpBannerUtils.swpBannerVersion;
+}
+
+- (NSString *)swpBannerVersion {
+    return self.class.swpBannerVersion;
 }
 
 - (void)setLoadNetwork:(BOOL)loadNetwork {

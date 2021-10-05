@@ -23,20 +23,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"%@", SwpBanner.swpBannerinfo);
-    NSLog(@"%@", SwpBanner.swpBannerVersion);
-    UIColor *totalPageColor     = [UIColor colorWithRed: 16.0 / 255.0 green: 158.0 / 255.0 blue: 220.0 / 255.0 alpha: 1.0];
-    UIColor *currentPageColor   = UIColor.orangeColor;
+    NSLog(@"swpBannerinfo = %@", SwpBanner.swpBannerinfo);
+    NSLog(@"swpBannerVersion = %@", SwpBanner.swpBannerVersion);
+    UIColor *totalPageColor = [UIColor colorWithRed: 16.0 / 255.0 green: 158.0 / 255.0 blue: 220.0 / 255.0 alpha: 1.0];
+    UIColor *pageColor      = UIColor.orangeColor;
     self.datas = [self localDatas];
-    self.swpBanner
-        .swp_dataSource(self)
-        .swp_delegate(self)
-        .swp_totalPageColor(totalPageColor)
-        .swp_pageColor(currentPageColor).swp_bannerSelected(^(SwpBanner *banner, NSIndexPath *indexPath) {
-            NSLog(@"%s, indexPath = %@ ", __FUNCTION__, indexPath);
-        });
+    
+    self.swpBanner.swp_dataSource(self).swp_delegate(self).swp_totalPageColor(totalPageColor).swp_pageColor(pageColor);
+    
+    [self swpBannerCallback:self.swpBanner];
 }
 
+
+- (void)swpBannerCallback:(SwpBanner *)swpBanner {
+    
+//    [swpBanner swpBannerSelected:^(SwpBanner * _Nonnull banner, NSIndexPath * _Nonnull indexPath) {
+//        // 注意 Block 循环引用
+//        NSLog(@"%s, indexPath = %@ ", __FUNCTION__, indexPath);
+//    }];
+    
+    swpBanner.swp_bannerSelected(^(SwpBanner * _Nonnull banner, NSIndexPath * _Nonnull indexPath) {
+        // 注意 Block 循环引用
+        NSLog(@"%s, indexPath = %@ ", __FUNCTION__, indexPath);
+    });
+}
 
 - (IBAction)selectedLoadLocal:(UIButton *)button {
     self.datas = self.localDatas;
@@ -46,19 +56,6 @@
 - (IBAction)selectedLoadNetwork:(UIButton *)button {
     self.datas = self.networkData;
     self.swpBanner.swp_loadNetwork(YES).swp_reloadData();
-}
-
-- (NSInteger)swpBanner:(SwpBanner *)swpBanner numberOfItemsInSection:(NSInteger)section {
-    return self.datas.count;
-}
-
-- (id)swpBanner:(SwpBanner *)swpBanner cellImageForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return self.datas[indexPath.item];
-}
-
-
-- (void)swpBanner:(SwpBanner *)swpBanner didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%s, indexPath = %@ ", __FUNCTION__, indexPath);
 }
 
 - (NSArray *)localDatas {
@@ -80,6 +77,28 @@
     ];
 }
 
+// MARK: - SwpBanner DataSource
+- (NSInteger)swpBanner:(SwpBanner *)swpBanner numberOfItemsInSection:(NSInteger)section {
+    return self.datas.count;
+}
+
+
+- (id)swpBanner:(SwpBanner *)swpBanner cellImageForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return self.datas[indexPath.item];
+}
+
+// MARK: - SwpBanner DataSource
+- (void)swpBanner:(SwpBanner *)swpBanner didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s, indexPath = %@ ", __FUNCTION__, indexPath);
+}
+
+- (id)swpBanner:(SwpBanner *)swpBanner loadNetworkPlaceholderImageAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row % 2 == 0) {
+        return swpBanner.placeholderImage;
+    }
+    return @"default_image";
+}
+// MARK: -
 
 /*
 #pragma mark - Navigation

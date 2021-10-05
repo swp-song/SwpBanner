@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// SwpBanner 数据源方法，设置 SwpBanner 自定义分组中 cell 显示的数据 | 样式
 /// @param  swpBanner       swpBanner
 /// @param  collectionView  collectionView
+/// @param  indexPath       indexPath
 /// @return UICollectionViewCell or UICollectionViewCell Subclass
 - (UICollectionViewCell *)swpBanner:(SwpBanner *)swpBanner collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 

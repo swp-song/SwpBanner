@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4FDBCAD517C24846A7257DE /* libPods-SwpBannerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BA661612028BF8A592305B /* libPods-SwpBannerDemo.a */; };
 		F19919C8270B3A8400D8DB57 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19919C7270B3A8400D8DB57 /* MainController.m */; };
 		F19919CF270B3AFC00D8DB57 /* SwpBanner2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F19919CE270B3AFC00D8DB57 /* SwpBanner2Controller.m */; };
 		F19919D2270B3B0C00D8DB57 /* SwpBanner1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F19919D1270B3B0C00D8DB57 /* SwpBanner1Controller.m */; };
@@ -16,13 +17,12 @@
 		F1AAF024270AC9B500CE7F47 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AAF019270AC9B500CE7F47 /* SceneDelegate.m */; };
 		F1AAF025270AC9B500CE7F47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AAF01A270AC9B500CE7F47 /* main.m */; };
 		F1AAF026270AC9B500CE7F47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AAF01B270AC9B500CE7F47 /* AppDelegate.m */; };
-		F9FB24788F8FB49B1B966285 /* Pods_SwpBannerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9284E2B6356CEE33F264BA04 /* Pods_SwpBannerDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		058CDBD2C86E1821AB3F6561 /* Pods-SwpBannerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpBannerDemo.release.xcconfig"; path = "Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		0C2B419E051D624462CB6BBE /* Pods-SwpBannerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpBannerDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		9284E2B6356CEE33F264BA04 /* Pods_SwpBannerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwpBannerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98BA661612028BF8A592305B /* libPods-SwpBannerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwpBannerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19919C6270B3A8400D8DB57 /* MainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		F19919C7270B3A8400D8DB57 /* MainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		F19919CD270B3AFC00D8DB57 /* SwpBanner2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwpBanner2Controller.h; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9FB24788F8FB49B1B966285 /* Pods_SwpBannerDemo.framework in Frameworks */,
+				D4FDBCAD517C24846A7257DE /* libPods-SwpBannerDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +153,7 @@
 		F95833CF3F1DBC9FF9EBC5D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9284E2B6356CEE33F264BA04 /* Pods_SwpBannerDemo.framework */,
+				98BA661612028BF8A592305B /* libPods-SwpBannerDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 				F1AAEFEE270AC8D800CE7F47 /* Sources */,
 				F1AAEFEF270AC8D800CE7F47 /* Frameworks */,
 				F1AAEFF0270AC8D800CE7F47 /* Resources */,
-				AC306C632988DD2B5D3A9937 /* [CP] Embed Pods Frameworks */,
+				B4F84567BE49C281722B054A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,21 +248,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AC306C632988DD2B5D3A9937 /* [CP] Embed Pods Frameworks */ = {
+		B4F84567BE49C281722B054A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwpBannerDemo/Pods-SwpBannerDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
