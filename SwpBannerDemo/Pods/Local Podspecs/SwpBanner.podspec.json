@@ -1,6 +1,6 @@
 {
   "name": "SwpBanner",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "summary": "封装图片轮播控件",
   "description": "TODO: SwpBanner, 封装图片轮播控件",
   "homepage": "https://github.com/swp-song/SwpBanner",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/swp-song/SwpBanner.git",
-    "tag": "3.0.0"
+    "tag": "3.0.1"
   },
   "source_files": "SwpBanner/Class/**/*.{h,m}",
   "resources": "SwpBanner/Resources/SwpBanner.bundle",

@@ -1,12 +1,12 @@
 # SwpBanner
 
-[![Xcode](https://img.shields.io/badge/Xcode-9.3-25B1F6.svg)](https://developer.apple.com/xcode)
-[![iOS](https://img.shields.io/badge/iOS-8.0+-1C75AF.svg)](https://developer.apple.com/xcode)
-[![CIStatus](http://img.shields.io/travis/swp-song/SwpBanner.svg?style=flat)](https://travis-ci.org/swp-song/SwpBanner)
+[![Xcode](https://img.shields.io/badge/Xcode-13-25B1F6.svg)](https://developer.apple.com/xcode)
+[![iOS](https://img.shields.io/badge/iOS-12.0+-1C75AF.svg)](https://developer.apple.com/xcode)
+[![CIStatus](https://app.travis-ci.com/swp-song/SwpBanner.svg?branch=master)](https://travis-ci.org/swp-song/SwpBanner)
 [![Version](https://img.shields.io/cocoapods/v/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner)
 [![License](https://img.shields.io/cocoapods/l/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner)
 [![Platform](https://img.shields.io/cocoapods/p/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner)
-[![SwpBanner](https://img.shields.io/badge/SwpBannerApi-v2.2.2-44E0D3.svg)](http://swp-song.com/docs/SwpBanner)
+[![SwpBanner](https://img.shields.io/badge/SwpBanner-v3.0.1-44E0D3.svg)](http://dream-swp.com/docs/SwpBanner/)
 [![SDWebImage](https://img.shields.io/badge/SDWebImage-GitHub-orange.svg)](https://github.com/rs/SDWebImage)
 
 -------
@@ -45,19 +45,11 @@
 ### 版本记录
 
 
-> * 版本版本：2.2.2
-> * 更新时间：2018-06-04 09:46:42
+> * 版本版本：3.0.1
+> * 更新时间：2021-10-06
 > * 更新内容：
 >
->>  * 修复内部问题
-
->> -------
-
-> * 版本版本：2.2.1
-> * 更新时间：2018-06-04 00:33:11
-> * 更新内容：
->
->> *  更新内部问题
+>>  * 新增属性, 修改部分 issue. 
 
 >> -------
 
@@ -68,11 +60,4 @@
 > * 持续更新, 如果喜欢, 欢迎 Star
 
 -------
-
-### 声明
-
- > * **著作权归 ©swp_song，如需转载请标明出处**
-
--------
-
 

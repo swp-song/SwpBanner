@@ -1,6 +1,6 @@
 
 ABOUT="Dream"
-VERSION="v3.0.0"
+VERSION="v3.0.1"
 PROJECT_NAME="SwpBanner"
 PWD=`pwd`
 OUTPUT_PATH=$PWD

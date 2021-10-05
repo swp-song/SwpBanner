@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwpBanner"
-  spec.version      = "3.0.0"
+  spec.version      = "3.0.1"
   spec.summary      = "封装图片轮播控件"
 
   # This description is used to generate tags and improve search results.
@@ -63,8 +63,8 @@ Pod::Spec.new do |spec|
   #  If this Pod runs only on iOS or OS X, then specify the platform and
   #  the deployment target. You can optionally include the target after the platform.
   #
-  spec.platform = :ios
-  spec.platform = :ios, "12.0"
+
+  spec.platform = :ios, "12.0" 
   spec.ios.deployment_target = "12.0"
 
   #  When using multiple platforms

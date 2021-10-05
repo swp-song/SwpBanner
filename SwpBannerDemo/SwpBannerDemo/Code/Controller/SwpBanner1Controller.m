@@ -76,10 +76,10 @@
 
 - (NSArray *)networkData {
     return @[
-        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image5.png",
-        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image6.png",
-        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image7.png",
-        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image8.png",
+        @"https://dream-swp.com/images/SwpBanner/image5.png",
+        @"https://dream-swp.com/images/SwpBanner/image6.png",
+        @"https://dream-swp.com/images/SwpBanner/image7.png",
+        @"https://dream-swp.com/images/SwpBanner/image8.png",
     ];
 }
 

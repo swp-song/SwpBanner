@@ -61,19 +61,19 @@
 - (NSArray *)localDatas {
     
     return @[
-        [UIImage imageNamed:@"image1"],
-        [UIImage imageNamed:@"image2"],
-        @"image3",
-        @"image4",
+        [UIImage imageNamed:@"image5"],
+        [UIImage imageNamed:@"image6"],
+        @"image7",
+        @"image8",
     ];
 }
 
 - (NSArray *)networkData {
     return @[
-        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image5.png",
-        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image6.png",
-        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image7.png",
-        @"https://raw.githubusercontent.com/swp-song/SwpBanner/master/PictureResources/image8.png",
+        @"https://dream-swp.com/images/SwpBanner/image1.png",
+        @"https://dream-swp.com/images/SwpBanner/image2.png",
+        @"https://dream-swp.com/images/SwpBanner/image3.png",
+        @"https://dream-swp.com/images/SwpBanner/image4.png",
     ];
 }
 
