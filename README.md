@@ -6,7 +6,7 @@
 [![Version](https://img.shields.io/cocoapods/v/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner)
 [![License](https://img.shields.io/cocoapods/l/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner)
 [![Platform](https://img.shields.io/cocoapods/p/SwpBanner.svg?style=flat)](http://cocoapods.org/pods/SwpBanner)
-[![SwpBanner](https://img.shields.io/badge/SwpBanner-v3.0.1-44E0D3.svg)](http://dream-swp.com/docs/SwpBanner/)
+[![SwpBanner](https://img.shields.io/badge/SwpBanner-v4.0.0-44E0D3.svg)](http://dream-swp.com/docs/SwpBanner/)
 [![SDWebImage](https://img.shields.io/badge/SDWebImage-GitHub-orange.svg)](https://github.com/rs/SDWebImage)
 
 -------
@@ -21,43 +21,27 @@
 -------
 
 
-### 导入
-> * 手动导入：
->
->> * **SwpBanner** 文件夹导入项目中。
->> * **`#import "SwpBannerHeader.h"`**
->> * 依赖库 **SDWebImage** , 需要手动导入。
->>
->> * **[SDWebImage](https://github.com/rs/SDWebImage)**
+### Swift Package Manager
 
+* Installation with Swift Package Manager
 
-> -------
+```swift
+dependencies: [
+    .package(url: "https://github.com/swp-song/SwpBanner.git", .upToNextMajor(from: "4.0.0"))
+]
+```
 
-> * CocoaPods 导入:
->
->> * **pod search SwpBanner**
->> * **pod 'SwpBanner'**
->> * **`#import <SwpBanner/SwpBannerHeader.h>`**
->> * **pod** 导入会自动添加依赖库, 无需手动导入
+-----
 
--------
+ ### Installation CocoaPods 
 
-### 版本记录
+ * Installation CocoaPods :
 
+```ruyby
+pod search SwpBanner
+pod 'SwpBanner'
+```
 
-> * 版本版本：3.0.1
-> * 更新时间：2021-10-06
-> * 更新内容：
->
->>  * 新增属性, 修改部分 issue. 
+-----
 
->> -------
-
--------
-
-### 备注
-
-> * 持续更新, 如果喜欢, 欢迎 Star
-
--------
 

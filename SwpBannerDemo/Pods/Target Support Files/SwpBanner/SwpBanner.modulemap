@@ -1,6 +1,0 @@
-framework module SwpBanner {
-  umbrella header "SwpBanner-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,1 +1,0 @@
-../../../../../SwpBanner/Class/SwpBannerView/SwpBannerCell.h

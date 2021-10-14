@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwpBanner"
-  spec.version      = "3.0.1"
+  spec.version      = "4.0.0"
   spec.summary      = "封装图片轮播控件"
 
   # This description is used to generate tags and improve search results.
@@ -64,11 +64,8 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  spec.platform = :ios, "12.0" 
-  spec.ios.deployment_target = "12.0"
-
   #  When using multiple platforms
-  # spec.ios.deployment_target = "13.0"
+  spec.ios.deployment_target = "13.0"
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
@@ -89,7 +86,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files = 'SwpBanner/Class/**/*.{h,m}'
+  spec.source_files = 'SwpBanner/Code/**/*.{h,m}'
  
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"

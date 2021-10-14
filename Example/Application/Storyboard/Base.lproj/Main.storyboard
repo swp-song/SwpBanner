@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qpA-Cz-fuf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="fzW-4Y-lRb">
+            <objects>
+                <navigationController id="qpA-Cz-fuf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZwH-ot-qwi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UAV-iC-kLm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p1J-2V-CjW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-952" y="191"/>
+        </scene>
+        <!--Swp Banner Controller2-->
+        <scene sceneID="9bT-em-TPG">
+            <objects>
+                <viewController id="xan-96-s3k" customClass="SwpBannerController2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7DZ-uF-bXg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-k5-3fL">
+                                <rect key="frame" x="10" y="544.5" width="394" height="39.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Load Network">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectedLoadNetwork:" destination="xan-96-s3k" eventType="touchUpInside" id="rCm-kQ-Xcf"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBH-Tu-JeU" customClass="SwpBanner">
+                                <rect key="frame" x="0.0" y="317.5" width="414" height="207"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zBH-Tu-JeU" secondAttribute="height" multiplier="2:1" id="CYZ-8t-D2Y"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBq-ra-EEJ">
+                                <rect key="frame" x="10" y="258" width="394" height="39.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MBq-ra-EEJ" secondAttribute="height" multiplier="10:1" id="6Na-CA-e09"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Load Local">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectedLoadLocal:" destination="xan-96-s3k" eventType="touchUpInside" id="SCX-zy-gTD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z5B-Vg-Irs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zBH-Tu-JeU" firstAttribute="top" secondItem="MBq-ra-EEJ" secondAttribute="bottom" constant="20" id="Bht-dx-rGa"/>
+                            <constraint firstItem="MBq-ra-EEJ" firstAttribute="leading" secondItem="z5B-Vg-Irs" secondAttribute="leading" constant="10" id="KKI-yA-07z"/>
+                            <constraint firstItem="cgP-k5-3fL" firstAttribute="leading" secondItem="MBq-ra-EEJ" secondAttribute="leading" id="QJZ-ER-NzC"/>
+                            <constraint firstItem="z5B-Vg-Irs" firstAttribute="trailing" secondItem="zBH-Tu-JeU" secondAttribute="trailing" id="T2i-Zc-2bY"/>
+                            <constraint firstItem="zBH-Tu-JeU" firstAttribute="centerX" secondItem="7DZ-uF-bXg" secondAttribute="centerX" id="TNU-iF-dh2"/>
+                            <constraint firstItem="cgP-k5-3fL" firstAttribute="top" secondItem="zBH-Tu-JeU" secondAttribute="bottom" constant="20" id="dmg-xa-v2u"/>
+                            <constraint firstItem="zBH-Tu-JeU" firstAttribute="leading" secondItem="z5B-Vg-Irs" secondAttribute="leading" id="izh-mn-PTo"/>
+                            <constraint firstItem="cgP-k5-3fL" firstAttribute="trailing" secondItem="MBq-ra-EEJ" secondAttribute="trailing" id="sPN-op-Y9W"/>
+                            <constraint firstItem="z5B-Vg-Irs" firstAttribute="trailing" secondItem="MBq-ra-EEJ" secondAttribute="trailing" constant="10" id="uPh-ts-n8r"/>
+                            <constraint firstItem="cgP-k5-3fL" firstAttribute="height" secondItem="MBq-ra-EEJ" secondAttribute="height" id="wPz-C5-uYR"/>
+                            <constraint firstItem="zBH-Tu-JeU" firstAttribute="centerY" secondItem="7DZ-uF-bXg" secondAttribute="centerY" id="yb5-SF-pgl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="swpBanner" destination="zBH-Tu-JeU" id="r7j-xs-ENC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p6y-45-u7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112" y="181"/>
+        </scene>
+        <!--Main Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbM-bv-XHK">
+                                <rect key="frame" x="10" y="388.5" width="394" height="39"/>
+                                <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Code">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-s4-M4P">
+                                <rect key="frame" x="10" y="458.5" width="394" height="39"/>
+                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Vc4-s4-M4P" secondAttribute="height" multiplier="10:1" id="1N6-sk-nwm"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="XIB">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="xan-96-s3k" kind="presentation" id="Qxi-XG-0fa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rbM-bv-XHK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-40" id="6mQ-B6-58Y"/>
+                            <constraint firstItem="rbM-bv-XHK" firstAttribute="height" secondItem="Vc4-s4-M4P" secondAttribute="height" id="Eti-A2-RPe"/>
+                            <constraint firstItem="rbM-bv-XHK" firstAttribute="leading" secondItem="Vc4-s4-M4P" secondAttribute="leading" id="VhN-rE-8jK"/>
+                            <constraint firstItem="Vc4-s4-M4P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="axz-Jg-UOa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vc4-s4-M4P" secondAttribute="trailing" constant="10" id="dHZ-dG-FSg"/>
+                            <constraint firstItem="rbM-bv-XHK" firstAttribute="trailing" secondItem="Vc4-s4-M4P" secondAttribute="trailing" id="oqv-u7-F2F"/>
+                            <constraint firstItem="Vc4-s4-M4P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="vvb-YV-xfv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="b5b-Di-LGH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496" y="187"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

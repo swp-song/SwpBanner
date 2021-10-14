@@ -1,6 +1,0 @@
-framework module Pods_SwpBannerDemo {
-  umbrella header "Pods-SwpBannerDemo-umbrella.h"
-
-  export *
-  module * { export * }
-}
