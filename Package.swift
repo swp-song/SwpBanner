@@ -24,6 +24,7 @@ let package = Package(
             resources: [
                 .process("Resources/SwpBanner.bundle")
             ],
+            publicHeadersPath: "Code/Core/",
             cSettings: [
                 .headerSearchPath("Code/Core"),
                 .headerSearchPath("Code/Private"),
